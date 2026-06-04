@@ -381,13 +381,17 @@ def child_node_inserted(element) -> None:
     """
     # Pause the debugger in order to get the initiator
     element = element.get("node", element)
+    if not element:
+        return
+
+    initiator_script_id = breakpoint_scriptID.scriptID or "unknown"
 
     node = DOMElement.DOMElementNode(
-        element["nodeId"],
-        element["nodeType"],
-        element["nodeName"],
-        "script" + breakpoint_scriptID.scriptID,
-        timeUtils.generate_timestamp()
+        element.get("nodeId"),
+        element.get("nodeType"),
+        element.get("nodeName"),
+        "script" + str(initiator_script_id),
+        timeUtils.generate_timestamp(),
     )
 
     # Add the node to the report
@@ -398,19 +402,30 @@ async def child_node_updated(element, cdp_session) -> None:
     """
     This function is called when a child node is updated, saving the child node info.
     """
-    node = await cdp_session.send("DOM.describeNode", {"nodeId": element["nodeId"]})
-    node = node["node"]
+    element = element.get("node", element)
+    if not element or "nodeId" not in element:
+        return
 
-    DOM_node = DOMElement.DOMElementNode(
-        node["nodeId"],
-        node["nodeType"],
-        node["nodeName"],
-        "script" + breakpoint_scriptID.scriptID,
-        timeUtils.generate_timestamp()
-    )
+    try:
+        node = await cdp_session.send("DOM.describeNode", {"nodeId": element["nodeId"]})
+        node = node.get("node")
+        if not node:
+            return
 
-    # Add the node to the report
-    report_json.append(DOM_node.to_dict())
+        initiator_script_id = breakpoint_scriptID.scriptID or "unknown"
+
+        DOM_node = DOMElement.DOMElementNode(
+            node.get("nodeId"),
+            node.get("nodeType"),
+            node.get("nodeName"),
+            "script" + str(initiator_script_id),
+            timeUtils.generate_timestamp(),
+        )
+
+        # Add the node to the report
+        report_json.append(DOM_node.to_dict())
+    except Exception:
+        return
 
 #-------------------------- EVENT LISTENER FUNCTIONS ----------------------------
 
