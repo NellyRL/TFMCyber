@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns:viz="http://www.gexf.net/1.2draft/viz" xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2025-05-06">
+    <creator>NetworkX 3.4.2</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="node">
+      <attribute id="0" title="nodeType" type="string" />
+      <attribute id="1" title="type" type="string" />
+      <attribute id="2" title="url" type="string" />
+      <attribute id="3" title="timestamp" type="long" />
+      <attribute id="4" title="requestID" type="string" />
+      <attribute id="5" title="origin" type="string" />
+      <attribute id="6" title="name" type="string" />
+      <attribute id="7" title="extensionID" type="string" />
+    </attributes>
+    <nodes>
+      <node id="7EA9094CF4947115E70D22AF1AED8697" label="7EA9094CF4947115E70D22AF1AED8697">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="service_worker" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/h0.js" />
+          <attvalue for="3" value="11169" />
+        </attvalues>
+      </node>
+      <node id="B92F46020D4C435860C37A50D8344C68" label="B92F46020D4C435860C37A50D8344C68">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="page" />
+          <attvalue for="2" value="about:blank" />
+          <attvalue for="3" value="11169" />
+        </attvalues>
+      </node>
+      <node id="EC77010EDE159B8E188572B84732A50C" label="EC77010EDE159B8E188572B84732A50C">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="EC77010EDE159B8E188572B84732A50C" />
+          <attvalue for="3" value="11186" />
+        </attvalues>
+      </node>
+      <node id="13012.2" label="13012.2">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="13012.2" />
+          <attvalue for="3" value="11548" />
+        </attvalues>
+      </node>
+      <node id="3FC7475C73FEAE3D45419235977BB5CA" label="3FC7475C73FEAE3D45419235977BB5CA">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="3FC7475C73FEAE3D45419235977BB5CA" />
+          <attvalue for="3" value="11555" />
+        </attvalues>
+      </node>
+      <node id="executionContext5" label="executionContext5">
+        <viz:color r="0" g="255" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="executionContext" />
+          <attvalue for="5" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi" />
+          <attvalue for="6" value="Honey: Automatic Coupons &amp; Rewards" />
+          <attvalue for="1" value="isolated" />
+          <attvalue for="3" value="11595" />
+        </attvalues>
+      </node>
+      <node id="gandplcmcbgboaoamikhihnbiidcmhfi" label="gandplcmcbgboaoamikhihnbiidcmhfi">
+        <viz:color r="0" g="0" b="255" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="extension" />
+          <attvalue for="7" value="gandplcmcbgboaoamikhihnbiidcmhfi" />
+          <attvalue for="6" value="Honey: Automatic Coupons &amp; Rewards" />
+          <attvalue for="3" value="11595" />
+        </attvalues>
+      </node>
+      <node id="CC010283EEA508BA074CEC923C1371F6" label="CC010283EEA508BA074CEC923C1371F6">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="iframe" />
+          <attvalue for="2" value="" />
+          <attvalue for="3" value="11713" />
+        </attvalues>
+      </node>
+      <node id="script15" label="script15">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/h1-check.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="11942" />
+        </attvalues>
+      </node>
+      <node id="2BF669747980475F33DBE6ACF8945EA6" label="2BF669747980475F33DBE6ACF8945EA6">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="page" />
+          <attvalue for="2" value="https://www.joinhoney.com/welcome" />
+          <attvalue for="3" value="12401" />
+        </attvalues>
+      </node>
+      <node id="F1B7DDA2FB844C478B582EAAAD117483" label="F1B7DDA2FB844C478B582EAAAD117483">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="iframe" />
+          <attvalue for="2" value="" />
+          <attvalue for="3" value="14636" />
+        </attvalues>
+      </node>
+      <node id="3A389161EDC22CB41B7203A24EF178DF" label="3A389161EDC22CB41B7203A24EF178DF">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="iframe" />
+          <attvalue for="2" value="" />
+          <attvalue for="3" value="15102" />
+        </attvalues>
+      </node>
+      <node id="E67ABFF188B02417B4A3437867722E67" label="E67ABFF188B02417B4A3437867722E67">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="iframe" />
+          <attvalue for="2" value="" />
+          <attvalue for="3" value="15144" />
+        </attvalues>
+      </node>
+      <node id="C1E1058D52B21F43388204EC71950B29" label="C1E1058D52B21F43388204EC71950B29">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="iframe" />
+          <attvalue for="2" value="" />
+          <attvalue for="3" value="15153" />
+        </attvalues>
+      </node>
+      <node id="ED47839F566D8C39DD30101C15018953" label="ED47839F566D8C39DD30101C15018953">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="other" />
+          <attvalue for="2" value="" />
+          <attvalue for="3" value="17436" />
+        </attvalues>
+      </node>
+      <node id="page0" label="page0">
+        <viz:color r="0" g="209" b="255" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="page" />
+          <attvalue for="2" value="about:blank" />
+          <attvalue for="3" value="11169" />
+        </attvalues>
+      </node>
+      <node id="page1" label="page1">
+        <viz:color r="0" g="209" b="255" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="page" />
+          <attvalue for="2" value="http://localhost:8080/index.html" />
+          <attvalue for="3" value="11533" />
+        </attvalues>
+      </node>
+      <node id="http://localhost:8080/photo.jpeg" label="http://localhost:8080/photo.jpeg" />
+      <node id="https://www.youtube.com/embed/tgbNymZ7vqY" label="https://www.youtube.com/embed/tgbNymZ7vqY" />
+    </nodes>
+    <edges>
+      <edge source="B92F46020D4C435860C37A50D8344C68" target="page0" id="0" label="loads" />
+      <edge source="B92F46020D4C435860C37A50D8344C68" target="page1" id="1" label="loads" />
+      <edge source="EC77010EDE159B8E188572B84732A50C" target="page0" id="2" label="initiates" />
+      <edge source="EC77010EDE159B8E188572B84732A50C" target="page1" id="3" label="loads" />
+      <edge source="13012.2" target="page1" id="4" label="initiates" />
+      <edge source="13012.2" target="http://localhost:8080/photo.jpeg" id="8" label="loads" />
+      <edge source="3FC7475C73FEAE3D45419235977BB5CA" target="page1" id="6" label="initiates" />
+      <edge source="3FC7475C73FEAE3D45419235977BB5CA" target="https://www.youtube.com/embed/tgbNymZ7vqY" id="11" label="loads" />
+      <edge source="executionContext5" target="page1" id="7" label="spawns" />
+      <edge source="executionContext5" target="gandplcmcbgboaoamikhihnbiidcmhfi" id="12" label="belongsTo" />
+      <edge source="executionContext5" target="script15" id="13" label="executes" />
+    </edges>
+  </graph>
+</gexf>

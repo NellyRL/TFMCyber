@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns:viz="http://www.gexf.net/1.2draft/viz" xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2025-05-06">
+    <creator>NetworkX 3.4.2</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="node">
+      <attribute id="0" title="nodeType" type="string" />
+      <attribute id="1" title="type" type="string" />
+      <attribute id="2" title="url" type="string" />
+      <attribute id="3" title="timestamp" type="long" />
+      <attribute id="4" title="requestID" type="string" />
+      <attribute id="5" title="origin" type="string" />
+      <attribute id="6" title="name" type="string" />
+      <attribute id="7" title="extensionID" type="string" />
+    </attributes>
+    <nodes>
+      <node id="D17EB9D2B8AB26D4CFF82BE0558D648C" label="D17EB9D2B8AB26D4CFF82BE0558D648C">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="service_worker" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/background.js" />
+          <attvalue for="3" value="13430" />
+        </attvalues>
+      </node>
+      <node id="9D1FC8AA048F88F47B74CB7B0DD49328" label="9D1FC8AA048F88F47B74CB7B0DD49328">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="page" />
+          <attvalue for="2" value="about:blank" />
+          <attvalue for="3" value="13430" />
+        </attvalues>
+      </node>
+      <node id="C5535EF4959431CA24C1A303685C15D3" label="C5535EF4959431CA24C1A303685C15D3">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="C5535EF4959431CA24C1A303685C15D3" />
+          <attvalue for="3" value="13446" />
+        </attvalues>
+      </node>
+      <node id="17656.2" label="17656.2">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="17656.2" />
+          <attvalue for="3" value="13779" />
+        </attvalues>
+      </node>
+      <node id="4971F2639F3D337A6EA43EC71EB0C9F6" label="4971F2639F3D337A6EA43EC71EB0C9F6">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="4971F2639F3D337A6EA43EC71EB0C9F6" />
+          <attvalue for="3" value="13787" />
+        </attvalues>
+      </node>
+      <node id="761064AF8A1739908E9426CC0A767F20" label="761064AF8A1739908E9426CC0A767F20">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="iframe" />
+          <attvalue for="2" value="" />
+          <attvalue for="3" value="13956" />
+        </attvalues>
+      </node>
+      <node id="8DA7EBEE5DFBE277F6A30E42C59EC3EC" label="8DA7EBEE5DFBE277F6A30E42C59EC3EC">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="other" />
+          <attvalue for="2" value="" />
+          <attvalue for="3" value="18115" />
+        </attvalues>
+      </node>
+      <node id="executionContext5" label="executionContext5">
+        <viz:color r="0" g="255" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="executionContext" />
+          <attvalue for="5" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi" />
+          <attvalue for="6" value="Substital: Add subtitles to videos and movies" />
+          <attvalue for="1" value="isolated" />
+          <attvalue for="3" value="18812" />
+        </attvalues>
+      </node>
+      <node id="gandplcmcbgboaoamikhihnbiidcmhfi" label="gandplcmcbgboaoamikhihnbiidcmhfi">
+        <viz:color r="0" g="0" b="255" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="extension" />
+          <attvalue for="7" value="gandplcmcbgboaoamikhihnbiidcmhfi" />
+          <attvalue for="6" value="Substital: Add subtitles to videos and movies" />
+          <attvalue for="3" value="18812" />
+        </attvalues>
+      </node>
+      <node id="domElement46" label="domElement46">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Element" />
+          <attvalue for="6" value="DIV" />
+          <attvalue for="3" value="18819" />
+        </attvalues>
+      </node>
+      <node id="17656.5" label="17656.5">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="17656.5" />
+          <attvalue for="3" value="23326" />
+        </attvalues>
+      </node>
+      <node id="7D1B3A1B7413F39513F1BDE04CA5245C" label="7D1B3A1B7413F39513F1BDE04CA5245C">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="other" />
+          <attvalue for="2" value="" />
+          <attvalue for="3" value="27435" />
+        </attvalues>
+      </node>
+      <node id="script16" label="script16">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/detection/bundle.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="27858" />
+        </attvalues>
+      </node>
+      <node id="script17" label="script17">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injection/bundle.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="30812" />
+        </attvalues>
+      </node>
+      <node id="C4274BBAB796A4C74204A05C8D5F96E2" label="C4274BBAB796A4C74204A05C8D5F96E2">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="iframe" />
+          <attvalue for="2" value="" />
+          <attvalue for="3" value="30915" />
+        </attvalues>
+      </node>
+      <node id="542EA74E925241168B43245276A18AD0" label="542EA74E925241168B43245276A18AD0">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="iframe" />
+          <attvalue for="2" value="" />
+          <attvalue for="3" value="30919" />
+        </attvalues>
+      </node>
+      <node id="B4EEE9263EB41E722EDE1374A742905E" label="B4EEE9263EB41E722EDE1374A742905E">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="iframe" />
+          <attvalue for="2" value="" />
+          <attvalue for="3" value="30919" />
+        </attvalues>
+      </node>
+      <node id="0CD52C26AF2B1B9470AC6C7CC6D129B4" label="0CD52C26AF2B1B9470AC6C7CC6D129B4">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="other" />
+          <attvalue for="2" value="" />
+          <attvalue for="3" value="69059" />
+        </attvalues>
+      </node>
+      <node id="script18" label="script18">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/detection/bundle.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="69487" />
+        </attvalues>
+      </node>
+      <node id="page0" label="page0">
+        <viz:color r="0" g="209" b="255" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="page" />
+          <attvalue for="2" value="about:blank" />
+          <attvalue for="3" value="13430" />
+        </attvalues>
+      </node>
+      <node id="page1" label="page1">
+        <viz:color r="0" g="209" b="255" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="page" />
+          <attvalue for="2" value="http://localhost:8080/index.html" />
+          <attvalue for="3" value="13750" />
+        </attvalues>
+      </node>
+      <node id="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d" label="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d" />
+      <node id="https://www.youtube.com/embed/tgbNymZ7vqY" label="https://www.youtube.com/embed/tgbNymZ7vqY" />
+      <node id="script15" label="script15">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/detection/bundle.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="18812" />
+        </attvalues>
+      </node>
+      <node id="https://i.ytimg.com/vi/tgbNymZ7vqY/mqdefault.jpg?sqp=-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGBEgcihBMA8=&amp;rs=AOn4CLCAfVTVTWiStpzu0mGwc0_hdIFrxg" label="https://i.ytimg.com/vi/tgbNymZ7vqY/mqdefault.jpg?sqp=-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGBEgcihBMA8=&amp;rs=AOn4CLCAfVTVTWiStpzu0mGwc0_hdIFrxg" />
+    </nodes>
+    <edges>
+      <edge source="9D1FC8AA048F88F47B74CB7B0DD49328" target="page0" id="0" label="loads" />
+      <edge source="9D1FC8AA048F88F47B74CB7B0DD49328" target="page1" id="1" label="loads" />
+      <edge source="C5535EF4959431CA24C1A303685C15D3" target="page0" id="2" label="initiates" />
+      <edge source="C5535EF4959431CA24C1A303685C15D3" target="page1" id="3" label="loads" />
+      <edge source="17656.2" target="page1" id="4" label="initiates" />
+      <edge source="17656.2" target="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d" id="9" label="loads" />
+      <edge source="4971F2639F3D337A6EA43EC71EB0C9F6" target="page1" id="6" label="initiates" />
+      <edge source="4971F2639F3D337A6EA43EC71EB0C9F6" target="https://www.youtube.com/embed/tgbNymZ7vqY" id="12" label="loads" />
+      <edge source="executionContext5" target="page1" id="7" label="spawns" />
+      <edge source="executionContext5" target="gandplcmcbgboaoamikhihnbiidcmhfi" id="13" label="belongsTo" />
+      <edge source="executionContext5" target="script15" id="14" label="executes" />
+      <edge source="executionContext5" target="script16" id="15" label="executes" />
+      <edge source="executionContext5" target="script17" id="16" label="executes" />
+      <edge source="executionContext5" target="script18" id="17" label="executes" />
+      <edge source="domElement46" target="script15" id="18" label="inserts" />
+      <edge source="17656.5" target="page1" id="8" label="initiates" />
+      <edge source="17656.5" target="https://i.ytimg.com/vi/tgbNymZ7vqY/mqdefault.jpg?sqp=-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGBEgcihBMA8=&amp;rs=AOn4CLCAfVTVTWiStpzu0mGwc0_hdIFrxg" id="19" label="loads" />
+    </edges>
+  </graph>
+</gexf>

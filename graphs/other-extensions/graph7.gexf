@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns:viz="http://www.gexf.net/1.2draft/viz" xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2025-05-06">
+    <creator>NetworkX 3.4.2</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="node">
+      <attribute id="0" title="nodeType" type="string" />
+      <attribute id="1" title="type" type="string" />
+      <attribute id="2" title="url" type="string" />
+      <attribute id="3" title="timestamp" type="long" />
+      <attribute id="4" title="requestID" type="string" />
+      <attribute id="5" title="origin" type="string" />
+      <attribute id="6" title="name" type="string" />
+      <attribute id="7" title="extensionID" type="string" />
+    </attributes>
+    <nodes>
+      <node id="544DBD076A4B43BBF18ADA9ED8462DE3" label="544DBD076A4B43BBF18ADA9ED8462DE3">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="service_worker" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/background.js" />
+          <attvalue for="3" value="17245" />
+        </attvalues>
+      </node>
+      <node id="AB1D525861FE609BF9FEC5081465B13F" label="AB1D525861FE609BF9FEC5081465B13F">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="page" />
+          <attvalue for="2" value="https://sider.ai/setup" />
+          <attvalue for="3" value="17245" />
+        </attvalues>
+      </node>
+      <node id="page0" label="page0">
+        <viz:color r="0" g="209" b="255" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="page" />
+          <attvalue for="2" value="https://sider.ai/setup" />
+          <attvalue for="3" value="17245" />
+        </attvalues>
+      </node>
+      <node id="D7029C9E9DC12A8F5B773B95316AB916" label="D7029C9E9DC12A8F5B773B95316AB916">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="page" />
+          <attvalue for="2" value="about:blank" />
+          <attvalue for="3" value="17245" />
+        </attvalues>
+      </node>
+      <node id="842B0C81C352DCCDF4442CFBBCD109FD" label="842B0C81C352DCCDF4442CFBBCD109FD">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="842B0C81C352DCCDF4442CFBBCD109FD" />
+          <attvalue for="3" value="17253" />
+        </attvalues>
+      </node>
+      <node id="19032.2" label="19032.2">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="19032.2" />
+          <attvalue for="3" value="17583" />
+        </attvalues>
+      </node>
+      <node id="executionContext5" label="executionContext5">
+        <viz:color r="0" g="255" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="executionContext" />
+          <attvalue for="5" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi" />
+          <attvalue for="6" value="Sider: ChatGPT Barra lateral + GPT-4o, Claude, DeepSeek &amp; Herramientas IA" />
+          <attvalue for="1" value="isolated" />
+          <attvalue for="3" value="17863" />
+        </attvalues>
+      </node>
+      <node id="gandplcmcbgboaoamikhihnbiidcmhfi" label="gandplcmcbgboaoamikhihnbiidcmhfi">
+        <viz:color r="0" g="0" b="255" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="extension" />
+          <attvalue for="7" value="gandplcmcbgboaoamikhihnbiidcmhfi" />
+          <attvalue for="6" value="Sider: ChatGPT Barra lateral + GPT-4o, Claude, DeepSeek &amp; Herramientas IA" />
+          <attvalue for="3" value="17863" />
+        </attvalues>
+      </node>
+      <node id="script15" label="script15">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/all-frames.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="17865" />
+        </attvalues>
+      </node>
+      <node id="59E65CC206F6D114654CD691D149CCB5" label="59E65CC206F6D114654CD691D149CCB5">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="59E65CC206F6D114654CD691D149CCB5" />
+          <attvalue for="3" value="17885" />
+        </attvalues>
+      </node>
+      <node id="A154EB4BD34A170D9F9764E89373026F" label="A154EB4BD34A170D9F9764E89373026F">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="iframe" />
+          <attvalue for="2" value="" />
+          <attvalue for="3" value="18095" />
+        </attvalues>
+      </node>
+      <node id="19032.36" label="19032.36">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="19032.36" />
+          <attvalue for="3" value="18650" />
+        </attvalues>
+      </node>
+      <node id="19032.37" label="19032.37">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="19032.37" />
+          <attvalue for="3" value="18650" />
+        </attvalues>
+      </node>
+      <node id="AB8F19474F0AA4F1D3E9D81B6EAF8B6A" label="AB8F19474F0AA4F1D3E9D81B6EAF8B6A">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="worker" />
+          <attvalue for="2" value="blob:https://sider.ai/36dfce7a-2272-4b8b-ba22-9f46ad0a76bb" />
+          <attvalue for="3" value="19102" />
+        </attvalues>
+      </node>
+      <node id="domElement28" label="domElement28">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Element" />
+          <attvalue for="6" value="DIV" />
+          <attvalue for="3" value="19155" />
+        </attvalues>
+      </node>
+      <node id="19032.38" label="19032.38">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="19032.38" />
+          <attvalue for="3" value="20042" />
+        </attvalues>
+      </node>
+      <node id="19032.39" label="19032.39">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="19032.39" />
+          <attvalue for="3" value="20042" />
+        </attvalues>
+      </node>
+      <node id="19032.11" label="19032.11">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="19032.11" />
+          <attvalue for="3" value="20321" />
+        </attvalues>
+      </node>
+      <node id="1EFA5F0DB42190F6D97240D3D101C125" label="1EFA5F0DB42190F6D97240D3D101C125">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="other" />
+          <attvalue for="2" value="" />
+          <attvalue for="3" value="23851" />
+        </attvalues>
+      </node>
+      <node id="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/content-all.css" label="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/content-all.css" />
+      <node id="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/fonts/fonts.css" label="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/fonts/fonts.css" />
+      <node id="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/i18n/es.json" label="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/i18n/es.json" />
+      <node id="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/assets/logo-O35E636P.png" label="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/assets/logo-O35E636P.png" />
+      <node id="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/fonts/DM-Sans-regular.woff2" label="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/fonts/DM-Sans-regular.woff2" />
+      <node id="page1" label="page1">
+        <viz:color r="0" g="209" b="255" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="page" />
+          <attvalue for="2" value="about:blank" />
+          <attvalue for="3" value="17245" />
+        </attvalues>
+      </node>
+      <node id="page2" label="page2">
+        <viz:color r="0" g="209" b="255" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="page" />
+          <attvalue for="2" value="http://localhost:8080/index.html" />
+          <attvalue for="3" value="17576" />
+        </attvalues>
+      </node>
+      <node id="http://localhost:8080/photo.jpeg" label="http://localhost:8080/photo.jpeg" />
+      <node id="script16" label="script16">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/content-all.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="18650" />
+        </attvalues>
+      </node>
+      <node id="https://www.youtube.com/embed/tgbNymZ7vqY" label="https://www.youtube.com/embed/tgbNymZ7vqY" />
+    </nodes>
+    <edges>
+      <edge source="AB1D525861FE609BF9FEC5081465B13F" target="page0" id="0" label="loads" />
+      <edge source="D7029C9E9DC12A8F5B773B95316AB916" target="page1" id="1" label="loads" />
+      <edge source="D7029C9E9DC12A8F5B773B95316AB916" target="page2" id="2" label="loads" />
+      <edge source="842B0C81C352DCCDF4442CFBBCD109FD" target="page1" id="3" label="initiates" />
+      <edge source="842B0C81C352DCCDF4442CFBBCD109FD" target="page2" id="4" label="loads" />
+      <edge source="19032.2" target="page2" id="5" label="initiates" />
+      <edge source="19032.2" target="http://localhost:8080/photo.jpeg" id="11" label="loads" />
+      <edge source="executionContext5" target="page2" id="7" label="spawns" />
+      <edge source="executionContext5" target="gandplcmcbgboaoamikhihnbiidcmhfi" id="14" label="belongsTo" />
+      <edge source="executionContext5" target="script15" id="15" label="executes" />
+      <edge source="executionContext5" target="script16" id="16" label="executes" />
+      <edge source="59E65CC206F6D114654CD691D149CCB5" target="page2" id="8" label="initiates" />
+      <edge source="59E65CC206F6D114654CD691D149CCB5" target="https://www.youtube.com/embed/tgbNymZ7vqY" id="17" label="loads" />
+      <edge source="19032.36" target="script16" id="18" label="initiates" />
+      <edge source="19032.36" target="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/content-all.css" id="23" label="loads" />
+      <edge source="19032.37" target="script16" id="19" label="initiates" />
+      <edge source="19032.37" target="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/fonts/fonts.css" id="24" label="loads" />
+      <edge source="domElement28" target="script16" id="20" label="inserts" />
+      <edge source="19032.38" target="script16" id="22" label="initiates" />
+      <edge source="19032.38" target="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/i18n/es.json" id="25" label="loads" />
+      <edge source="19032.39" target="page2" id="9" label="initiates" />
+      <edge source="19032.39" target="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/assets/logo-O35E636P.png" id="26" label="loads" />
+      <edge source="19032.11" target="page2" id="10" label="initiates" />
+      <edge source="19032.11" target="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/fonts/DM-Sans-regular.woff2" id="27" label="loads" />
+    </edges>
+  </graph>
+</gexf>

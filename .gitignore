@@ -1,0 +1,12 @@
+env
+venv
+*Web-Store*
+report.json
+user_data_dir
+imagenes_traza
+__pycache__
+webGraph.gexf
+webGraphWithoutExtension.gexf
+graph_diff.gexf
+chrome-extension-directory
+report_without_extension.json

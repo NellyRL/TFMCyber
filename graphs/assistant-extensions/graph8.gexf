@@ -1,0 +1,971 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns:viz="http://www.gexf.net/1.2draft/viz" xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2025-05-06">
+    <creator>NetworkX 3.4.2</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="node">
+      <attribute id="0" title="nodeType" type="string" />
+      <attribute id="1" title="type" type="string" />
+      <attribute id="2" title="url" type="string" />
+      <attribute id="3" title="timestamp" type="long" />
+      <attribute id="4" title="requestID" type="string" />
+      <attribute id="5" title="origin" type="string" />
+      <attribute id="6" title="name" type="string" />
+      <attribute id="7" title="extensionID" type="string" />
+    </attributes>
+    <nodes>
+      <node id="75E8A31549530CC16BC5CC5C74855EFF" label="75E8A31549530CC16BC5CC5C74855EFF">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="service_worker" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/main.js" />
+          <attvalue for="3" value="14130" />
+        </attvalues>
+      </node>
+      <node id="30E31A3A4B7B388A8375645703F361AF" label="30E31A3A4B7B388A8375645703F361AF">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="page" />
+          <attvalue for="2" value="about:blank" />
+          <attvalue for="3" value="14130" />
+        </attvalues>
+      </node>
+      <node id="6619BF9DF25ADB60253A0867D80686E8" label="6619BF9DF25ADB60253A0867D80686E8">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="6619BF9DF25ADB60253A0867D80686E8" />
+          <attvalue for="3" value="14140" />
+        </attvalues>
+      </node>
+      <node id="16300.2" label="16300.2">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.2" />
+          <attvalue for="3" value="14473" />
+        </attvalues>
+      </node>
+      <node id="BC704A8FCC47BCA75558C9202A29BDB1" label="BC704A8FCC47BCA75558C9202A29BDB1">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="BC704A8FCC47BCA75558C9202A29BDB1" />
+          <attvalue for="3" value="14477" />
+        </attvalues>
+      </node>
+      <node id="B46B5B33E7818054805E4CAB8609275D" label="B46B5B33E7818054805E4CAB8609275D">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="iframe" />
+          <attvalue for="2" value="" />
+          <attvalue for="3" value="14635" />
+        </attvalues>
+      </node>
+      <node id="executionContext5" label="executionContext5">
+        <viz:color r="0" g="255" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="executionContext" />
+          <attvalue for="5" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi" />
+          <attvalue for="6" value="NaturalReader - AI Text to Speech" />
+          <attvalue for="1" value="isolated" />
+          <attvalue for="3" value="15015" />
+        </attvalues>
+      </node>
+      <node id="gandplcmcbgboaoamikhihnbiidcmhfi" label="gandplcmcbgboaoamikhihnbiidcmhfi">
+        <viz:color r="0" g="0" b="255" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="extension" />
+          <attvalue for="7" value="gandplcmcbgboaoamikhihnbiidcmhfi" />
+          <attvalue for="6" value="NaturalReader - AI Text to Speech" />
+          <attvalue for="3" value="15690" />
+        </attvalues>
+      </node>
+      <node id="script15" label="script15">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/utils.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="15015" />
+        </attvalues>
+      </node>
+      <node id="script16" label="script16">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/assets/js/jquery-3.6.0.min.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="15292" />
+        </attvalues>
+      </node>
+      <node id="domElement28" label="domElement28">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Element" />
+          <attvalue for="6" value="FIELDSET" />
+          <attvalue for="3" value="15310" />
+        </attvalues>
+      </node>
+      <node id="domElement29" label="domElement29">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Element" />
+          <attvalue for="6" value="FIELDSET" />
+          <attvalue for="3" value="15378" />
+        </attvalues>
+      </node>
+      <node id="domElement30" label="domElement30">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Element" />
+          <attvalue for="6" value="FIELDSET" />
+          <attvalue for="3" value="15459" />
+        </attvalues>
+      </node>
+      <node id="domElement48" label="domElement48">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Element" />
+          <attvalue for="6" value="FIELDSET" />
+          <attvalue for="3" value="15554" />
+        </attvalues>
+      </node>
+      <node id="script17" label="script17">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-text-processor/nr-ext-text-processor.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="15616" />
+        </attvalues>
+      </node>
+      <node id="domElement97" label="domElement97">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Element" />
+          <attvalue for="6" value="IFRAME" />
+          <attvalue for="3" value="15659" />
+        </attvalues>
+      </node>
+      <node id="domElement98" label="domElement98">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Element" />
+          <attvalue for="6" value="IFRAME" />
+          <attvalue for="3" value="15667" />
+        </attvalues>
+      </node>
+      <node id="executionContext6" label="executionContext6">
+        <viz:color r="0" g="255" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="executionContext" />
+          <attvalue for="5" value="http://localhost:8080" />
+          <attvalue for="6" value="" />
+          <attvalue for="1" value="default" />
+          <attvalue for="3" value="15669" />
+        </attvalues>
+      </node>
+      <node id="script20" label="script20">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="15669" />
+        </attvalues>
+      </node>
+      <node id="script21" label="script21">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="15669" />
+        </attvalues>
+      </node>
+      <node id="16300.5" label="16300.5">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.5" />
+          <attvalue for="3" value="15672" />
+        </attvalues>
+      </node>
+      <node id="domElement99" label="domElement99">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Document" />
+          <attvalue for="6" value="#document" />
+          <attvalue for="3" value="15700" />
+        </attvalues>
+      </node>
+      <node id="executionContext8" label="executionContext8">
+        <viz:color r="0" g="255" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="executionContext" />
+          <attvalue for="5" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi" />
+          <attvalue for="6" value="NaturalReader - AI Text to Speech" />
+          <attvalue for="1" value="isolated" />
+          <attvalue for="3" value="15690" />
+        </attvalues>
+      </node>
+      <node id="16300.6" label="16300.6">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.6" />
+          <attvalue for="3" value="15698" />
+        </attvalues>
+      </node>
+      <node id="script22" label="script22">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/ok.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="20288" />
+        </attvalues>
+      </node>
+      <node id="script23" label="script23">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/assets/js/jquery-3.6.0.min.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="20328" />
+        </attvalues>
+      </node>
+      <node id="domElement100" label="domElement100">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Element" />
+          <attvalue for="6" value="FIELDSET" />
+          <attvalue for="3" value="20328" />
+        </attvalues>
+      </node>
+      <node id="domElement101" label="domElement101">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Element" />
+          <attvalue for="6" value="FIELDSET" />
+          <attvalue for="3" value="20334" />
+        </attvalues>
+      </node>
+      <node id="domElement102" label="domElement102">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Element" />
+          <attvalue for="6" value="FIELDSET" />
+          <attvalue for="3" value="20334" />
+        </attvalues>
+      </node>
+      <node id="domElement103" label="domElement103">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Element" />
+          <attvalue for="6" value="FIELDSET" />
+          <attvalue for="3" value="20355" />
+        </attvalues>
+      </node>
+      <node id="script24" label="script24">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-reader/tts-text.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="20369" />
+        </attvalues>
+      </node>
+      <node id="script25" label="script25">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-reader/voices.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="20409" />
+        </attvalues>
+      </node>
+      <node id="script26" label="script26">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-reader/tts.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="20445" />
+        </attvalues>
+      </node>
+      <node id="script27" label="script27">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-reader/reader.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="20472" />
+        </attvalues>
+      </node>
+      <node id="script28" label="script28">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-reader/pe.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="20492" />
+        </attvalues>
+      </node>
+      <node id="script29" label="script29">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/libs/compromise.min.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="20714" />
+        </attvalues>
+      </node>
+      <node id="script30" label="script30">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-dom/nr-ext-dom-controller.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="20739" />
+        </attvalues>
+      </node>
+      <node id="script31" label="script31">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-text-processor/nr-ext-text-processor.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="20739" />
+        </attvalues>
+      </node>
+      <node id="script32" label="script32">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-text-processor/html-doc.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="20776" />
+        </attvalues>
+      </node>
+      <node id="script33" label="script33">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/assets/js/displace.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="20805" />
+        </attvalues>
+      </node>
+      <node id="script34" label="script34">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/amplify-config.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="20971" />
+        </attvalues>
+      </node>
+      <node id="script35" label="script35">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/assets/js/plugins/uuidv4.min.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="20996" />
+        </attvalues>
+      </node>
+      <node id="script36" label="script36">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-reading-bar/nr-ext-reading-bar.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="21037" />
+        </attvalues>
+      </node>
+      <node id="16300.7" label="16300.7">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.7" />
+          <attvalue for="3" value="21037" />
+        </attvalues>
+      </node>
+      <node id="domElement104" label="domElement104">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Element" />
+          <attvalue for="6" value="STYLE" />
+          <attvalue for="3" value="21070" />
+        </attvalues>
+      </node>
+      <node id="domElement106" label="domElement106">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Element" />
+          <attvalue for="6" value="STYLE" />
+          <attvalue for="3" value="21070" />
+        </attvalues>
+      </node>
+      <node id="domElement108" label="domElement108">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Element" />
+          <attvalue for="6" value="DIV" />
+          <attvalue for="3" value="21070" />
+        </attvalues>
+      </node>
+      <node id="16300.8" label="16300.8">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.8" />
+          <attvalue for="3" value="21070" />
+        </attvalues>
+      </node>
+      <node id="16300.9" label="16300.9">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.9" />
+          <attvalue for="3" value="21070" />
+        </attvalues>
+      </node>
+      <node id="16300.10" label="16300.10">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.10" />
+          <attvalue for="3" value="21070" />
+        </attvalues>
+      </node>
+      <node id="16300.25" label="16300.25">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.25" />
+          <attvalue for="3" value="21120" />
+        </attvalues>
+      </node>
+      <node id="16300.26" label="16300.26">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.26" />
+          <attvalue for="3" value="21120" />
+        </attvalues>
+      </node>
+      <node id="16300.27" label="16300.27">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.27" />
+          <attvalue for="3" value="21120" />
+        </attvalues>
+      </node>
+      <node id="16300.28" label="16300.28">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.28" />
+          <attvalue for="3" value="21120" />
+        </attvalues>
+      </node>
+      <node id="16300.29" label="16300.29">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.29" />
+          <attvalue for="3" value="21120" />
+        </attvalues>
+      </node>
+      <node id="16300.30" label="16300.30">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.30" />
+          <attvalue for="3" value="21121" />
+        </attvalues>
+      </node>
+      <node id="16300.31" label="16300.31">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.31" />
+          <attvalue for="3" value="21121" />
+        </attvalues>
+      </node>
+      <node id="16300.32" label="16300.32">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.32" />
+          <attvalue for="3" value="21121" />
+        </attvalues>
+      </node>
+      <node id="16300.33" label="16300.33">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.33" />
+          <attvalue for="3" value="21121" />
+        </attvalues>
+      </node>
+      <node id="16300.34" label="16300.34">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.34" />
+          <attvalue for="3" value="21121" />
+        </attvalues>
+      </node>
+      <node id="16300.35" label="16300.35">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.35" />
+          <attvalue for="3" value="21121" />
+        </attvalues>
+      </node>
+      <node id="16300.36" label="16300.36">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.36" />
+          <attvalue for="3" value="21121" />
+        </attvalues>
+      </node>
+      <node id="16300.38" label="16300.38">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.38" />
+          <attvalue for="3" value="21121" />
+        </attvalues>
+      </node>
+      <node id="16300.39" label="16300.39">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.39" />
+          <attvalue for="3" value="21121" />
+        </attvalues>
+      </node>
+      <node id="16300.40" label="16300.40">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.40" />
+          <attvalue for="3" value="21121" />
+        </attvalues>
+      </node>
+      <node id="16300.41" label="16300.41">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.41" />
+          <attvalue for="3" value="21121" />
+        </attvalues>
+      </node>
+      <node id="16300.42" label="16300.42">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.42" />
+          <attvalue for="3" value="21121" />
+        </attvalues>
+      </node>
+      <node id="16300.43" label="16300.43">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.43" />
+          <attvalue for="3" value="21121" />
+        </attvalues>
+      </node>
+      <node id="16300.44" label="16300.44">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.44" />
+          <attvalue for="3" value="21123" />
+        </attvalues>
+      </node>
+      <node id="16300.45" label="16300.45">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.45" />
+          <attvalue for="3" value="21123" />
+        </attvalues>
+      </node>
+      <node id="16300.19" label="16300.19">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.19" />
+          <attvalue for="3" value="21165" />
+        </attvalues>
+      </node>
+      <node id="16300.17" label="16300.17">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.17" />
+          <attvalue for="3" value="21165" />
+        </attvalues>
+      </node>
+      <node id="16300.21" label="16300.21">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.21" />
+          <attvalue for="3" value="21165" />
+        </attvalues>
+      </node>
+      <node id="16300.68" label="16300.68">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.68" />
+          <attvalue for="3" value="23778" />
+        </attvalues>
+      </node>
+      <node id="16300.72" label="16300.72">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.72" />
+          <attvalue for="3" value="23778" />
+        </attvalues>
+      </node>
+      <node id="16300.75" label="16300.75">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.75" />
+          <attvalue for="3" value="23811" />
+        </attvalues>
+      </node>
+      <node id="domElement110" label="domElement110">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Element" />
+          <attvalue for="6" value="DIV" />
+          <attvalue for="3" value="29864" />
+        </attvalues>
+      </node>
+      <node id="domElement111" label="domElement111">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Element" />
+          <attvalue for="6" value="NR-SENTENCE" />
+          <attvalue for="3" value="33764" />
+        </attvalues>
+      </node>
+      <node id="domElement112" label="domElement112">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Text" />
+          <attvalue for="6" value="#text" />
+          <attvalue for="3" value="29869" />
+        </attvalues>
+      </node>
+      <node id="domElement113" label="domElement113">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Element" />
+          <attvalue for="6" value="NR-SENTENCE" />
+          <attvalue for="3" value="42249" />
+        </attvalues>
+      </node>
+      <node id="domElement114" label="domElement114">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Text" />
+          <attvalue for="6" value="#text" />
+          <attvalue for="3" value="29871" />
+        </attvalues>
+      </node>
+      <node id="domElement115" label="domElement115">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Element" />
+          <attvalue for="6" value="NR-SENTENCE" />
+          <attvalue for="3" value="48015" />
+        </attvalues>
+      </node>
+      <node id="domElement116" label="domElement116">
+        <viz:color r="255" g="197" b="0" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="domElement" />
+          <attvalue for="1" value="Element" />
+          <attvalue for="6" value="NR-SENTENCE" />
+          <attvalue for="3" value="53134" />
+        </attvalues>
+      </node>
+      <node id="16300.76" label="16300.76">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.76" />
+          <attvalue for="3" value="31582" />
+        </attvalues>
+      </node>
+      <node id="16300.77" label="16300.77">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.77" />
+          <attvalue for="3" value="33657" />
+        </attvalues>
+      </node>
+      <node id="16300.78" label="16300.78">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.78" />
+          <attvalue for="3" value="42149" />
+        </attvalues>
+      </node>
+      <node id="16300.79" label="16300.79">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.79" />
+          <attvalue for="3" value="47916" />
+        </attvalues>
+      </node>
+      <node id="16300.96" label="16300.96">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="16300.96" />
+          <attvalue for="3" value="57448" />
+        </attvalues>
+      </node>
+      <node id="A1D4EFB98E6859226AB27A31102A4EF4" label="A1D4EFB98E6859226AB27A31102A4EF4" />
+      <node id="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-dom/nr-ext-select-icon/nr-ext-select-icon.html" label="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-dom/nr-ext-select-icon/nr-ext-select-icon.html" />
+      <node id="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-dom/nr-ext-select-icon/nr-ext-select-icon.css" label="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-dom/nr-ext-select-icon/nr-ext-select-icon.css" />
+      <node id="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-reading-bar/nr-ext-reading-bar.html" label="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-reading-bar/nr-ext-reading-bar.html" />
+      <node id="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-reading-bar/nr-ext-reading-bar.css" label="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-reading-bar/nr-ext-reading-bar.css" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/english/Jane.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/english/Jane.jpg" />
+      <node id="chrome-extension://invalid/" label="chrome-extension://invalid/" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Ava.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Ava.jpg" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Brian.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Brian.jpg" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Andrew.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Andrew.jpg" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Emma.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Emma.jpg" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Jenny.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Jenny.jpg" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Ryan.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Ryan.jpg" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Alloy.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Alloy.jpg" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Echo.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Echo.jpg" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Fable.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Fable.jpg" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Onyx.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Onyx.jpg" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Nova.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Nova.jpg" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Shimmer.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Shimmer.jpg" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Nil.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Nil.jpg" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Triana.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Triana.jpg" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Arnau.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Arnau.jpg" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Ximena.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Ximena.jpg" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Alvaro.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Alvaro.jpg" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Elvira.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Elvira.jpg" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Enrique.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Enrique.jpg" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Conchita.jpg" label="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Conchita.jpg" />
+      <node id="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/assets/img/prem.svg" label="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/assets/img/prem.svg" />
+      <node id="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/assets/img/free.svg" label="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/assets/img/free.svg" />
+      <node id="https://wwwnaturalreaderscom.s3.amazonaws.com/plus2022/SpanishVoices/SpanishSpainNil.mp3" label="https://wwwnaturalreaderscom.s3.amazonaws.com/plus2022/SpanishVoices/SpanishSpainNil.mp3" />
+      <node id="blob:http://localhost:8080/a037d0f1-c720-4580-ae2a-7f05a9aae8ef" label="blob:http://localhost:8080/a037d0f1-c720-4580-ae2a-7f05a9aae8ef" />
+      <node id="blob:http://localhost:8080/e9e9ad77-d99e-4fc2-8b32-26be5ac680bd" label="blob:http://localhost:8080/e9e9ad77-d99e-4fc2-8b32-26be5ac680bd" />
+      <node id="blob:http://localhost:8080/a6da7baf-acfa-4a69-93f2-6d47cce8add8" label="blob:http://localhost:8080/a6da7baf-acfa-4a69-93f2-6d47cce8add8" />
+      <node id="blob:http://localhost:8080/875c800e-a1cb-4a1e-b849-97070b1edc9a" label="blob:http://localhost:8080/875c800e-a1cb-4a1e-b849-97070b1edc9a" />
+      <node id="page0" label="page0">
+        <viz:color r="0" g="209" b="255" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="page" />
+          <attvalue for="2" value="about:blank" />
+          <attvalue for="3" value="15659" />
+        </attvalues>
+      </node>
+      <node id="page1" label="page1">
+        <viz:color r="0" g="209" b="255" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="page" />
+          <attvalue for="2" value="http://localhost:8080/index.html" />
+          <attvalue for="3" value="14460" />
+        </attvalues>
+      </node>
+      <node id="http://localhost:8080/photo.jpeg" label="http://localhost:8080/photo.jpeg" />
+      <node id="https://www.youtube.com/embed/tgbNymZ7vqY" label="https://www.youtube.com/embed/tgbNymZ7vqY" />
+      <node id="script18" label="script18">
+        <viz:color r="255" g="0" b="143" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="script" />
+          <attvalue for="2" value="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-dom/nr-ext-dom-detector.js" />
+          <attvalue for="1" value="script" />
+          <attvalue for="3" value="15653" />
+        </attvalues>
+      </node>
+      <node id="https://i.ytimg.com/vi/tgbNymZ7vqY/mqdefault.jpg?sqp=-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGBEgcihBMA8=&amp;rs=AOn4CLCAfVTVTWiStpzu0mGwc0_hdIFrxg" label="https://i.ytimg.com/vi/tgbNymZ7vqY/mqdefault.jpg?sqp=-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGBEgcihBMA8=&amp;rs=AOn4CLCAfVTVTWiStpzu0mGwc0_hdIFrxg" />
+    </nodes>
+    <edges>
+      <edge source="30E31A3A4B7B388A8375645703F361AF" target="page0" id="0" label="loads" />
+      <edge source="30E31A3A4B7B388A8375645703F361AF" target="page1" id="1" label="loads" />
+      <edge source="6619BF9DF25ADB60253A0867D80686E8" target="page0" id="2" label="initiates" />
+      <edge source="6619BF9DF25ADB60253A0867D80686E8" target="page1" id="38" label="loads" />
+      <edge source="16300.2" target="page1" id="39" label="initiates" />
+      <edge source="16300.2" target="http://localhost:8080/photo.jpeg" id="43" label="loads" />
+      <edge source="BC704A8FCC47BCA75558C9202A29BDB1" target="page1" id="41" label="initiates" />
+      <edge source="BC704A8FCC47BCA75558C9202A29BDB1" target="https://www.youtube.com/embed/tgbNymZ7vqY" id="46" label="loads" />
+      <edge source="executionContext5" target="page1" id="42" label="spawns" />
+      <edge source="executionContext5" target="gandplcmcbgboaoamikhihnbiidcmhfi" id="47" label="belongsTo" />
+      <edge source="executionContext5" target="script15" id="48" label="executes" />
+      <edge source="executionContext5" target="script16" id="49" label="executes" />
+      <edge source="executionContext5" target="script17" id="50" label="executes" />
+      <edge source="executionContext5" target="script18" id="51" label="executes" />
+      <edge source="executionContext5" target="script22" id="52" label="executes" />
+      <edge source="executionContext5" target="script23" id="53" label="executes" />
+      <edge source="executionContext5" target="script24" id="54" label="executes" />
+      <edge source="executionContext5" target="script25" id="55" label="executes" />
+      <edge source="executionContext5" target="script26" id="56" label="executes" />
+      <edge source="executionContext5" target="script27" id="57" label="executes" />
+      <edge source="executionContext5" target="script28" id="58" label="executes" />
+      <edge source="executionContext5" target="script29" id="59" label="executes" />
+      <edge source="executionContext5" target="script30" id="60" label="executes" />
+      <edge source="executionContext5" target="script31" id="61" label="executes" />
+      <edge source="executionContext5" target="script32" id="62" label="executes" />
+      <edge source="executionContext5" target="script33" id="63" label="executes" />
+      <edge source="executionContext5" target="script34" id="64" label="executes" />
+      <edge source="executionContext5" target="script35" id="65" label="executes" />
+      <edge source="executionContext5" target="script36" id="66" label="executes" />
+      <edge source="gandplcmcbgboaoamikhihnbiidcmhfi" target="executionContext8" id="95" label="belongsTo" />
+      <edge source="script16" target="domElement28" id="67" label="inserts" />
+      <edge source="script16" target="domElement29" id="68" label="inserts" />
+      <edge source="script16" target="domElement30" id="69" label="inserts" />
+      <edge source="script16" target="domElement48" id="70" label="inserts" />
+      <edge source="domElement97" target="script18" id="71" label="inserts" />
+      <edge source="domElement98" target="script18" id="72" label="inserts" />
+      <edge source="executionContext6" target="page0" id="3" label="spawns" />
+      <edge source="executionContext6" target="script20" id="92" label="executes" />
+      <edge source="executionContext6" target="script21" id="93" label="executes" />
+      <edge source="script20" target="script18" id="73" label="triggers" />
+      <edge source="script21" target="script18" id="74" label="triggers" />
+      <edge source="16300.5" target="script18" id="75" label="initiates" />
+      <edge source="16300.5" target="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-dom/nr-ext-select-icon/nr-ext-select-icon.html" id="94" label="loads" />
+      <edge source="domElement99" target="script18" id="76" label="inserts" />
+      <edge source="executionContext8" target="page0" id="4" label="spawns" />
+      <edge source="16300.6" target="script18" id="77" label="initiates" />
+      <edge source="16300.6" target="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-dom/nr-ext-select-icon/nr-ext-select-icon.css" id="96" label="loads" />
+      <edge source="domElement100" target="script18" id="78" label="inserts" />
+      <edge source="domElement101" target="script18" id="79" label="inserts" />
+      <edge source="domElement102" target="script18" id="80" label="inserts" />
+      <edge source="domElement103" target="script18" id="81" label="inserts" />
+      <edge source="script36" target="16300.7" id="97" label="initiates" />
+      <edge source="script36" target="16300.8" id="98" label="initiates" />
+      <edge source="16300.7" target="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-reading-bar/nr-ext-reading-bar.html" id="99" label="loads" />
+      <edge source="domElement104" target="script18" id="82" label="inserts" />
+      <edge source="domElement106" target="script18" id="83" label="inserts" />
+      <edge source="domElement108" target="script18" id="84" label="inserts" />
+      <edge source="16300.8" target="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/injected/nr-ext-reading-bar/nr-ext-reading-bar.css" id="100" label="loads" />
+      <edge source="16300.9" target="page0" id="5" label="initiates" />
+      <edge source="16300.9" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/english/Jane.jpg" id="101" label="loads" />
+      <edge source="16300.10" target="page0" id="6" label="initiates" />
+      <edge source="16300.10" target="chrome-extension://invalid/" id="102" label="loads" />
+      <edge source="16300.25" target="page0" id="7" label="initiates" />
+      <edge source="16300.25" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Ava.jpg" id="103" label="loads" />
+      <edge source="16300.26" target="page0" id="8" label="initiates" />
+      <edge source="16300.26" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Brian.jpg" id="104" label="loads" />
+      <edge source="16300.27" target="page0" id="9" label="initiates" />
+      <edge source="16300.27" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Andrew.jpg" id="105" label="loads" />
+      <edge source="16300.28" target="page0" id="10" label="initiates" />
+      <edge source="16300.28" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Emma.jpg" id="106" label="loads" />
+      <edge source="16300.29" target="page0" id="11" label="initiates" />
+      <edge source="16300.29" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Jenny.jpg" id="107" label="loads" />
+      <edge source="16300.30" target="page0" id="12" label="initiates" />
+      <edge source="16300.30" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Ryan.jpg" id="108" label="loads" />
+      <edge source="16300.31" target="page0" id="13" label="initiates" />
+      <edge source="16300.31" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Alloy.jpg" id="109" label="loads" />
+      <edge source="16300.32" target="page0" id="14" label="initiates" />
+      <edge source="16300.32" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Echo.jpg" id="110" label="loads" />
+      <edge source="16300.33" target="page0" id="15" label="initiates" />
+      <edge source="16300.33" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Fable.jpg" id="111" label="loads" />
+      <edge source="16300.34" target="page0" id="16" label="initiates" />
+      <edge source="16300.34" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Onyx.jpg" id="112" label="loads" />
+      <edge source="16300.35" target="page0" id="17" label="initiates" />
+      <edge source="16300.35" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Nova.jpg" id="113" label="loads" />
+      <edge source="16300.36" target="page0" id="18" label="initiates" />
+      <edge source="16300.36" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/multi-lingual/Shimmer.jpg" id="114" label="loads" />
+      <edge source="16300.38" target="page0" id="19" label="initiates" />
+      <edge source="16300.38" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Nil.jpg" id="115" label="loads" />
+      <edge source="16300.39" target="page0" id="20" label="initiates" />
+      <edge source="16300.39" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Triana.jpg" id="116" label="loads" />
+      <edge source="16300.40" target="page0" id="21" label="initiates" />
+      <edge source="16300.40" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Arnau.jpg" id="117" label="loads" />
+      <edge source="16300.41" target="page0" id="22" label="initiates" />
+      <edge source="16300.41" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Ximena.jpg" id="118" label="loads" />
+      <edge source="16300.42" target="page0" id="23" label="initiates" />
+      <edge source="16300.42" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Alvaro.jpg" id="119" label="loads" />
+      <edge source="16300.43" target="page0" id="24" label="initiates" />
+      <edge source="16300.43" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Elvira.jpg" id="120" label="loads" />
+      <edge source="16300.44" target="page0" id="25" label="initiates" />
+      <edge source="16300.44" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Enrique.jpg" id="121" label="loads" />
+      <edge source="16300.45" target="page0" id="26" label="initiates" />
+      <edge source="16300.45" target="https://wwwnaturalreaderscom.s3.amazonaws.com/pw-portraits/spanish/Conchita.jpg" id="122" label="loads" />
+      <edge source="16300.19" target="page0" id="27" label="initiates" />
+      <edge source="16300.19" target="chrome-extension://invalid/" id="123" label="loads" />
+      <edge source="16300.17" target="page0" id="28" label="initiates" />
+      <edge source="16300.17" target="chrome-extension://invalid/" id="124" label="loads" />
+      <edge source="16300.21" target="page0" id="29" label="initiates" />
+      <edge source="16300.21" target="chrome-extension://invalid/" id="125" label="loads" />
+      <edge source="16300.68" target="page0" id="30" label="initiates" />
+      <edge source="16300.68" target="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/assets/img/prem.svg" id="126" label="loads" />
+      <edge source="16300.72" target="page0" id="31" label="initiates" />
+      <edge source="16300.72" target="chrome-extension://gandplcmcbgboaoamikhihnbiidcmhfi/assets/img/free.svg" id="127" label="loads" />
+      <edge source="16300.75" target="page0" id="32" label="initiates" />
+      <edge source="16300.75" target="https://wwwnaturalreaderscom.s3.amazonaws.com/plus2022/SpanishVoices/SpanishSpainNil.mp3" id="128" label="loads" />
+      <edge source="domElement110" target="script18" id="85" label="inserts" />
+      <edge source="domElement111" target="script18" id="86" label="inserts" />
+      <edge source="domElement112" target="script18" id="87" label="inserts" />
+      <edge source="domElement113" target="script18" id="88" label="inserts" />
+      <edge source="domElement114" target="script18" id="89" label="inserts" />
+      <edge source="domElement115" target="script18" id="90" label="inserts" />
+      <edge source="domElement116" target="script18" id="91" label="inserts" />
+      <edge source="16300.76" target="page0" id="33" label="initiates" />
+      <edge source="16300.76" target="blob:http://localhost:8080/a037d0f1-c720-4580-ae2a-7f05a9aae8ef" id="129" label="loads" />
+      <edge source="16300.77" target="page0" id="34" label="initiates" />
+      <edge source="16300.77" target="blob:http://localhost:8080/e9e9ad77-d99e-4fc2-8b32-26be5ac680bd" id="130" label="loads" />
+      <edge source="16300.78" target="page0" id="35" label="initiates" />
+      <edge source="16300.78" target="blob:http://localhost:8080/a6da7baf-acfa-4a69-93f2-6d47cce8add8" id="131" label="loads" />
+      <edge source="16300.79" target="page0" id="36" label="initiates" />
+      <edge source="16300.79" target="blob:http://localhost:8080/875c800e-a1cb-4a1e-b849-97070b1edc9a" id="132" label="loads" />
+      <edge source="16300.96" target="page0" id="37" label="initiates" />
+      <edge source="16300.96" target="https://i.ytimg.com/vi/tgbNymZ7vqY/mqdefault.jpg?sqp=-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGBEgcihBMA8=&amp;rs=AOn4CLCAfVTVTWiStpzu0mGwc0_hdIFrxg" id="133" label="loads" />
+      <edge source="A1D4EFB98E6859226AB27A31102A4EF4" target="page0" id="134" label="loads" />
+    </edges>
+  </graph>
+</gexf>

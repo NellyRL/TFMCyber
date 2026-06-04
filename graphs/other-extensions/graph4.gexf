@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns:viz="http://www.gexf.net/1.2draft/viz" xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2025-05-06">
+    <creator>NetworkX 3.4.2</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="node">
+      <attribute id="0" title="nodeType" type="string" />
+      <attribute id="1" title="type" type="string" />
+      <attribute id="2" title="url" type="string" />
+      <attribute id="3" title="timestamp" type="long" />
+      <attribute id="4" title="requestID" type="string" />
+    </attributes>
+    <nodes>
+      <node id="77478603798C263F6CB1B0661831C405" label="77478603798C263F6CB1B0661831C405">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="page" />
+          <attvalue for="2" value="about:blank" />
+          <attvalue for="3" value="8946" />
+        </attvalues>
+      </node>
+      <node id="7091D6A6B53BEA08275EB87818249718" label="7091D6A6B53BEA08275EB87818249718">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="7091D6A6B53BEA08275EB87818249718" />
+          <attvalue for="3" value="8959" />
+        </attvalues>
+      </node>
+      <node id="17948.2" label="17948.2">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="17948.2" />
+          <attvalue for="3" value="9288" />
+        </attvalues>
+      </node>
+      <node id="7DEBC8A02E13305C542C6AB95AAFA948" label="7DEBC8A02E13305C542C6AB95AAFA948">
+        <viz:color r="0" g="255" b="189" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="network" />
+          <attvalue for="4" value="7DEBC8A02E13305C542C6AB95AAFA948" />
+          <attvalue for="3" value="9297" />
+        </attvalues>
+      </node>
+      <node id="D0C85F8824D9E9FA3223515032DF5EDD" label="D0C85F8824D9E9FA3223515032DF5EDD">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="iframe" />
+          <attvalue for="2" value="" />
+          <attvalue for="3" value="9457" />
+        </attvalues>
+      </node>
+      <node id="848E8F0F29A2A042029706F020AEAE0C" label="848E8F0F29A2A042029706F020AEAE0C">
+        <viz:color r="144" g="144" b="144" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="target" />
+          <attvalue for="1" value="other" />
+          <attvalue for="2" value="" />
+          <attvalue for="3" value="11972" />
+        </attvalues>
+      </node>
+      <node id="page0" label="page0">
+        <viz:color r="0" g="209" b="255" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="page" />
+          <attvalue for="2" value="about:blank" />
+          <attvalue for="3" value="8946" />
+        </attvalues>
+      </node>
+      <node id="page1" label="page1">
+        <viz:color r="0" g="209" b="255" a="1.0" />
+        <attvalues>
+          <attvalue for="0" value="page" />
+          <attvalue for="2" value="http://localhost:8080/index.html" />
+          <attvalue for="3" value="9276" />
+        </attvalues>
+      </node>
+      <node id="http://localhost:8080/photo.jpeg" label="http://localhost:8080/photo.jpeg" />
+      <node id="https://www.youtube.com/embed/tgbNymZ7vqY" label="https://www.youtube.com/embed/tgbNymZ7vqY" />
+    </nodes>
+    <edges>
+      <edge source="77478603798C263F6CB1B0661831C405" target="page0" id="0" label="loads" />
+      <edge source="77478603798C263F6CB1B0661831C405" target="page1" id="1" label="loads" />
+      <edge source="7091D6A6B53BEA08275EB87818249718" target="page0" id="2" label="initiates" />
+      <edge source="7091D6A6B53BEA08275EB87818249718" target="page1" id="3" label="loads" />
+      <edge source="17948.2" target="page1" id="4" label="initiates" />
+      <edge source="17948.2" target="http://localhost:8080/photo.jpeg" id="7" label="loads" />
+      <edge source="7DEBC8A02E13305C542C6AB95AAFA948" target="page1" id="6" label="initiates" />
+      <edge source="7DEBC8A02E13305C542C6AB95AAFA948" target="https://www.youtube.com/embed/tgbNymZ7vqY" id="10" label="loads" />
+    </edges>
+  </graph>
+</gexf>
