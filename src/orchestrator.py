@@ -11,14 +11,14 @@ import subprocess
 from playwright.async_api import async_playwright, Playwright
 
 # Own modules
-import paths
-import utils.fileUtils as fileUtils
-import utils.timeUtils as timeUtils
-import utils.cdpUtils as cdpUtils
-from webGraph import create_graph
-from graph_diff import graph_diff
-from utils.webActions import actions_on_web
-from colours import *
+from src.common import paths
+from src.common import files as fileUtils
+from src.common import times as timeUtils
+from src.capture import cdp as cdpUtils
+from src.graph.builder import create_graph
+from src.graph.diff import graph_diff
+from src.capture.web_actions import actions_on_web
+from src.common.colours import *
 
 #------------------------- PREVIOUS INFORMATION DELETION -----------------
 
@@ -65,7 +65,7 @@ async def run(playwright: Playwright, extension_path: str, selected_output_dir: 
     # Expose the api_call_detected, so it can be called from hooks.js
     await context.expose_function("pyNotify", api_call_detected)
     # Read the javascript file where the proxy is defined
-    with open("hooks.js", "r", encoding="utf-8") as file:
+    with open(paths.get_hooks_path(), "r", encoding="utf-8") as file:
             hooks = file.read()
     # Add the proxy and hooks to the context
     await context.add_init_script(hooks)
@@ -151,7 +151,7 @@ async def run_without_extension(playwright: Playwright) -> None:
     # Expose the api_call_detected, so it can be called from hooks.js
     await page.context.expose_function("pyNotify", api_call_detected)
     # Read the javascript file where the proxy is defined
-    with open("hooks.js", "r", encoding="utf-8") as file:
+    with open(paths.get_hooks_path(), "r", encoding="utf-8") as file:
             hooks = file.read()
     # Add the proxy and hooks to the context
     await page.context.add_init_script(hooks)
@@ -202,9 +202,11 @@ async def run_without_extension(playwright: Playwright) -> None:
 #--------------------------- MAIN FUNCTION CALL --------------------------
 
 async def main(extension_path: str, selected_output_dir: str):
+    # Make sure the output directory for generated files exists
+    paths.ensure_output_dir()
     # We start a local page as a testing web
     php_server = subprocess.Popen(
-        ["php", "-S", "127.0.0.1:8080", "-t", "web_page"],
+        ["php", "-S", "127.0.0.1:8080", "-t", paths.get_web_page_dir()],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE
         )

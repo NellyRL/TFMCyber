@@ -8,6 +8,8 @@ events captured by CDP (Chrome DevTools Protocol).
 
 import networkx as nx
 
+from src.common import paths
+
 #--------------------------- GRAPH CREATION ------------------------------
 
 def create_graph(report: dict, extension:bool, selected_output_dir: str):
@@ -124,8 +126,8 @@ def create_graph(report: dict, extension:bool, selected_output_dir: str):
     # Export the graph to a gexf file (for Gephi visualitation)
     if extension:
         nx.write_gexf(graph, selected_output_dir + "\webGraph.gexf")
-        nx.write_gexf(graph, "webGraph.gexf")
+        nx.write_gexf(graph, paths.get_webgraph_path())
         return graph
     else:
-        nx.write_gexf(graph, "webGraphWithoutExtension.gexf")
+        nx.write_gexf(graph, paths.get_webgraph_without_extension_path())
         return graph

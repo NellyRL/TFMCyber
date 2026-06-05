@@ -7,16 +7,17 @@ This script contains all the functions needed to work with CDP (Chrome DevTools 
 
 import json
 import asyncio
-import node_objects.Target as Target
-import node_objects.Page as Page
-import node_objects.Network as Network
-import node_objects.ExecutionContext as ExecutionContext
-import node_objects.Script as Script
-import node_objects.Extension as Extension
-import node_objects.DOMElement as DOMElement
-import node_objects.EventListener as EventListener
-import node_objects.ApiCall as ApiCall
-import utils.timeUtils as timeUtils
+from src.nodes import target as Target
+from src.nodes import page as Page
+from src.nodes import network as Network
+from src.nodes import execution_context as ExecutionContext
+from src.nodes import script as Script
+from src.nodes import extension as Extension
+from src.nodes import dom_element as DOMElement
+from src.nodes import event_listener as EventListener
+from src.nodes import api_call as ApiCall
+from src.common import times as timeUtils
+from src.common import paths
 
 #---------------------------- GLOBAL VARIABLES --------------------------
 
@@ -51,10 +52,10 @@ async def generate_json_report(extension:bool) -> None:
     await initiator_associate_page()
 
     if extension:
-        with open("report.json", "w") as report:
+        with open(paths.get_report_path(), "w") as report:
             json.dump(report_json, report, indent=4)
     else:
-        with open("report_without_extension.json", "w") as report:
+        with open(paths.get_report_without_extension_path(), "w") as report:
             json.dump(report_json, report, indent=4)
 
 #---------------------------- TARGET FUNCTIONS --------------------------

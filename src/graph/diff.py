@@ -1,10 +1,12 @@
 import networkx as nx
 
+from src.common import paths
+
 
 def graph_diff(selected_output_dir):
     # Load the graphs
-    G1 = nx.read_gexf("webGraphWithoutExtension.gexf")
-    G2 = nx.read_gexf("webGraph.gexf")
+    G1 = nx.read_gexf(paths.get_webgraph_without_extension_path())
+    G2 = nx.read_gexf(paths.get_webgraph_path())
 
     # Creating a new graph
     G_diff = nx.Graph()

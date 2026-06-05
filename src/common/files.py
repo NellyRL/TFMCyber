@@ -8,8 +8,8 @@ This script contains the functions that are used to create, delete or modify fil
 import os
 import shutil
 import struct
-from colours import *
-import paths
+from src.common.colours import *
+from src.common import paths
 
 #---------------------------- FILE FUNCTIONS -----------------------------
 
@@ -49,7 +49,7 @@ def decompress_extension(extension_path) -> None:
     This function tries to decompress an extension file.
     """
     try:
-        shutil.unpack_archive(extension_path, paths.get_actual_path() + "\\chrome-extension-directory")
+        shutil.unpack_archive(extension_path, paths.get_extension_path())
         print(f"{greenColour}[+]{endColour}{grayColour} Extension decompressed{endColour}")
     except:
         print(f"{redColour}[!]{endColour}{grayColour} Extension not decompressed{endColour}")
@@ -119,7 +119,7 @@ def decompress_crx(filename):
         if wrote < 1:
             print("  - wrote 0 bytes to file (%s)." % zip_name)
     
-    shutil.unpack_archive(ret, paths.get_actual_path() + "\\chrome-extension-directory")
+    shutil.unpack_archive(ret, paths.get_extension_path())
     print(f"{greenColour}[+]{endColour}{grayColour} Extension decompressed{endColour}")
     return zip_name
 # CREDITS END

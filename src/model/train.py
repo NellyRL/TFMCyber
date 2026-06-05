@@ -3,17 +3,18 @@ import torch
 import networkx as nx
 from torch_geometric.data import Data
 from torch_geometric.loader import DataLoader
-from torch_geometric.nn import GCNConv, global_mean_pool
-import torch.nn.functional as F
 import torch.nn as nn
 import torch.optim as optim
 from sklearn.model_selection import StratifiedKFold
 from collections import Counter
 
+from src.common import paths
+from src.model.architecture import SimpleGCN
+
 # === Cargar dataset ===
 
-assistant_dir = "graphs/assistant-extensions"
-other_dir = "graphs/other-extensions"
+assistant_dir = os.path.join(paths.get_graphs_dir(), "assistant-extensions")
+other_dir = os.path.join(paths.get_graphs_dir(), "other-extensions")
 paths_labels = []
 
 for filename in os.listdir(assistant_dir):
@@ -65,23 +66,7 @@ data_list = [gexf_to_pyg_data(path, label, attr_names) for path, label in paths_
 labels = [data.y.item() for data in data_list]
 
 # === Modelo GNN con Dropout ===
-
-class SimpleGCN(nn.Module):
-    def __init__(self, input_dim, hidden_dim=64):
-        super(SimpleGCN, self).__init__()
-        self.conv1 = GCNConv(input_dim, hidden_dim)
-        self.conv2 = GCNConv(hidden_dim, hidden_dim)
-        self.dropout = nn.Dropout(p=0.3)
-        self.lin = nn.Linear(hidden_dim, 2)
-
-    def forward(self, data):
-        x, edge_index, batch = data.x, data.edge_index, data.batch
-        x = F.relu(self.conv1(x, edge_index))
-        x = self.dropout(x)
-        x = F.relu(self.conv2(x, edge_index))
-        x = self.dropout(x)
-        x = global_mean_pool(x, batch)
-        return self.lin(x)
+# (SimpleGCN se define en src/model/architecture.py y se reutiliza aquí)
 
 # === Cross-Validation ===
 
@@ -139,7 +124,7 @@ for fold, (train_idx, test_idx) in enumerate(skf.split(data_list, labels)):
 
 print(f"\nPrecisión media en los 5 folds: {sum(accuracies)/len(accuracies):.4f}")
 
-torch.save(model.state_dict(), "gnn_model.pth")
+torch.save(model.state_dict(), paths.get_model_path())
 import pickle
-with open("attr_names.pkl", "wb") as f:
+with open(paths.get_attr_names_path(), "wb") as f:
     pickle.dump(attr_names, f)

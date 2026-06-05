@@ -3,10 +3,11 @@ from tkinter import filedialog
 import tkinter as tk
 import os
 import asyncio
-from main import main
-from prediction import predict
+from src.orchestrator import main
+from src.model.predict import predict
 
 selected_output_dir = ""
+last_w, last_h = 0, 0
 
 def select_file_callback():
     root = tk.Tk()
@@ -76,59 +77,6 @@ def execute_analysis():
     dpg.set_value("status_text", "Análisis completado correctamente.")
     show_alert_popup()
 
-# ========== GUI ==========
-
-dpg.create_context()
-
-with dpg.font_registry():
-    try:
-        default_font = dpg.add_font("C:\\Windows\\Fonts\\segoeui.ttf", 18)
-    except:
-        default_font = None
-
-with dpg.theme() as custom_theme:
-    with dpg.theme_component(dpg.mvAll):
-        dpg.add_theme_style(dpg.mvStyleVar_FrameRounding, 10)
-        dpg.add_theme_style(dpg.mvStyleVar_WindowRounding, 10)
-        dpg.add_theme_style(dpg.mvStyleVar_FramePadding, 10, 10)
-        dpg.add_theme_color(dpg.mvThemeCol_WindowBg, (30, 30, 30, 255))
-        dpg.add_theme_color(dpg.mvThemeCol_Text, (230, 230, 230, 255))
-        dpg.add_theme_color(dpg.mvThemeCol_Button, (70, 70, 70, 255))
-        dpg.add_theme_color(dpg.mvThemeCol_ButtonHovered, (120, 120, 120, 255))
-        dpg.add_theme_color(dpg.mvThemeCol_ButtonActive, (140, 140, 140, 255))
-
-dpg.create_viewport(title="Analizador de Extensiones", width=1000, height=700, resizable=True)
-
-with dpg.window(tag="main_window", no_title_bar=True, no_resize=True, no_move=True,
-                pos=(0, 0), width=1000, height=700):
-    with dpg.tab_bar():
-
-        with dpg.tab(label="Análisis de Extensión"):
-            dpg.add_spacer(height=30)
-            with dpg.group(horizontal=False):
-                dpg.add_text("1. Selecciona una extensión (.crx o .zip)", bullet=True)
-                dpg.add_button(label="Seleccionar archivo", callback=select_file_callback, width=250)
-                dpg.add_input_text(tag="selected_file", readonly=True, width=600, hint="Ruta del archivo")
-
-                dpg.add_spacer(height=15)
-                dpg.add_text("2. Selecciona la carpeta de salida", bullet=True)
-                dpg.add_button(label="Seleccionar carpeta de salida", callback=select_output_dir_callback, width=250)
-                dpg.add_input_text(tag="selected_output_dir", readonly=True, width=600, hint="Ruta de salida")
-
-                dpg.add_spacer(height=20)
-                dpg.add_button(label="Ejecutar análisis", callback=execute_analysis, width=250)
-
-                dpg.add_spacer(height=25)
-                dpg.add_text("Estado:")
-                dpg.add_text("Esperando archivo...", tag="status_text")
-
-        with dpg.tab(label="Resultados del Análisis"):
-            dpg.add_text("Resultado del modelo:", tag="resultado_clase", color=(200, 200, 200))
-            dpg.add_spacer(height=10)
-            dpg.add_progress_bar(default_value=0.0, tag="prob_assistant", overlay="Probabilidad assistant: 0.0", width=400)
-            dpg.add_progress_bar(default_value=0.0, tag="prob_other", overlay="Probabilidad other: 0.0", width=400)
-            dpg.add_spacer(height=10)
-
 # Adaptación al redimensionamiento
 
 def resize_main_window():
@@ -146,18 +94,71 @@ def check_viewport_resize():
         resize_main_window()
         last_w, last_h = w, h
 
-last_w, last_h = 0, 0
+# ========== GUI ==========
 
-# === Lanzamiento de DearPyGui ===
-dpg.setup_dearpygui()
-dpg.bind_theme(custom_theme)
-if default_font:
-    dpg.bind_font(default_font)
-resize_main_window()
-dpg.show_viewport()
+def launch():
 
-while dpg.is_dearpygui_running():
-    check_viewport_resize()
-    dpg.render_dearpygui_frame()
+    dpg.create_context()
 
-dpg.destroy_context()
+    with dpg.font_registry():
+        try:
+            default_font = dpg.add_font("C:\\Windows\\Fonts\\segoeui.ttf", 18)
+        except:
+            default_font = None
+
+    with dpg.theme() as custom_theme:
+        with dpg.theme_component(dpg.mvAll):
+            dpg.add_theme_style(dpg.mvStyleVar_FrameRounding, 10)
+            dpg.add_theme_style(dpg.mvStyleVar_WindowRounding, 10)
+            dpg.add_theme_style(dpg.mvStyleVar_FramePadding, 10, 10)
+            dpg.add_theme_color(dpg.mvThemeCol_WindowBg, (30, 30, 30, 255))
+            dpg.add_theme_color(dpg.mvThemeCol_Text, (230, 230, 230, 255))
+            dpg.add_theme_color(dpg.mvThemeCol_Button, (70, 70, 70, 255))
+            dpg.add_theme_color(dpg.mvThemeCol_ButtonHovered, (120, 120, 120, 255))
+            dpg.add_theme_color(dpg.mvThemeCol_ButtonActive, (140, 140, 140, 255))
+
+    dpg.create_viewport(title="Analizador de Extensiones", width=1000, height=700, resizable=True)
+
+    with dpg.window(tag="main_window", no_title_bar=True, no_resize=True, no_move=True,
+                    pos=(0, 0), width=1000, height=700):
+        with dpg.tab_bar():
+
+            with dpg.tab(label="Análisis de Extensión"):
+                dpg.add_spacer(height=30)
+                with dpg.group(horizontal=False):
+                    dpg.add_text("1. Selecciona una extensión (.crx o .zip)", bullet=True)
+                    dpg.add_button(label="Seleccionar archivo", callback=select_file_callback, width=250)
+                    dpg.add_input_text(tag="selected_file", readonly=True, width=600, hint="Ruta del archivo")
+
+                    dpg.add_spacer(height=15)
+                    dpg.add_text("2. Selecciona la carpeta de salida", bullet=True)
+                    dpg.add_button(label="Seleccionar carpeta de salida", callback=select_output_dir_callback, width=250)
+                    dpg.add_input_text(tag="selected_output_dir", readonly=True, width=600, hint="Ruta de salida")
+
+                    dpg.add_spacer(height=20)
+                    dpg.add_button(label="Ejecutar análisis", callback=execute_analysis, width=250)
+
+                    dpg.add_spacer(height=25)
+                    dpg.add_text("Estado:")
+                    dpg.add_text("Esperando archivo...", tag="status_text")
+
+            with dpg.tab(label="Resultados del Análisis"):
+                dpg.add_text("Resultado del modelo:", tag="resultado_clase", color=(200, 200, 200))
+                dpg.add_spacer(height=10)
+                dpg.add_progress_bar(default_value=0.0, tag="prob_assistant", overlay="Probabilidad assistant: 0.0", width=400)
+                dpg.add_progress_bar(default_value=0.0, tag="prob_other", overlay="Probabilidad other: 0.0", width=400)
+                dpg.add_spacer(height=10)
+
+    # === Lanzamiento de DearPyGui ===
+    dpg.setup_dearpygui()
+    dpg.bind_theme(custom_theme)
+    if default_font:
+        dpg.bind_font(default_font)
+    resize_main_window()
+    dpg.show_viewport()
+
+    while dpg.is_dearpygui_running():
+        check_viewport_resize()
+        dpg.render_dearpygui_frame()
+
+    dpg.destroy_context()

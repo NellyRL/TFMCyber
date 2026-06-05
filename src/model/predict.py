@@ -2,29 +2,11 @@ import sys
 import torch
 import networkx as nx
 from torch_geometric.data import Data
-from torch_geometric.nn import GCNConv, global_mean_pool
 import torch.nn.functional as F
-import torch.nn as nn
 import pickle
 
-# === Modelo ===
-
-class SimpleGCN(nn.Module):
-    def __init__(self, input_dim, hidden_dim=64):
-        super(SimpleGCN, self).__init__()
-        self.conv1 = GCNConv(input_dim, hidden_dim)
-        self.conv2 = GCNConv(hidden_dim, hidden_dim)
-        self.dropout = nn.Dropout(p=0.3)
-        self.lin = nn.Linear(hidden_dim, 2)
-
-    def forward(self, data):
-        x, edge_index, batch = data.x, data.edge_index, data.batch
-        x = F.relu(self.conv1(x, edge_index))
-        x = self.dropout(x)
-        x = F.relu(self.conv2(x, edge_index))
-        x = self.dropout(x)
-        x = global_mean_pool(x, batch)
-        return self.lin(x)
+from src.common import paths
+from src.model.architecture import SimpleGCN
 
 # === Función para convertir GEXF a Data ===
 
@@ -58,7 +40,12 @@ def gexf_to_pyg_data(path, attr_names):
 
 # === Clasificación ===
 
-def predict(path_gexf, model_path="gnn_model.pth", attr_path="attr_names.pkl"):
+def predict(path_gexf, model_path=None, attr_path=None):
+    # Use the default data/models paths when none are provided
+    if model_path is None:
+        model_path = paths.get_model_path()
+    if attr_path is None:
+        attr_path = paths.get_attr_names_path()
     # Cargar atributos
     with open(attr_path, "rb") as f:
         attr_names = pickle.load(f)
