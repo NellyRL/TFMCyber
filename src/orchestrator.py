@@ -1,6 +1,9 @@
 """
 AUTOR: David Martín Castro
 This script contains the main function, which is used to run the program.
+
+Adapted By: Nelly Ramos
+Script extended to implement the TTS/dyslexia scenario's canary seeding and user-like interactions.
 """
 
 #---------------------------- LIBRARIES IMPORT ---------------------------
@@ -19,6 +22,7 @@ from src.graph.builder import create_graph
 from src.graph.diff import graph_diff
 from src.capture.web_actions import actions_on_web
 from src.common.colours import *
+from src.common.canaries import CanarySet
 
 #------------------------- PREVIOUS INFORMATION DELETION -----------------
 
@@ -32,9 +36,7 @@ print(f"{greenColour}[+]{endColour}{grayColour} Starting program...{endColour}")
 # Start time of the program
 timeUtils.start_time = timeUtils.get_current_time()
 
-
-async def run(playwright: Playwright, extension_path: str, selected_output_dir: str) -> None:
-
+async def run(playwright: Playwright, extension_path: str, selected_output_dir: str, canaries: CanarySet) -> None:
     # Descompress the extension
     if extension_path.endswith(".crx"):
         crx_zip = fileUtils.decompress_crx(extension_path)
@@ -46,6 +48,9 @@ async def run(playwright: Playwright, extension_path: str, selected_output_dir: 
         args=[f"--disable-extensions-except={paths.get_extension_path()}",\
         f"--load-extension={paths.get_extension_path()}"])
     
+    # Seed the canary session cookie on the local origin (credential-theft probe)
+    await context.add_cookies([canaries.cookie()])
+
     # We will use the first page created by the browser context
     page = context.pages[0]
 
@@ -72,11 +77,15 @@ async def run(playwright: Playwright, extension_path: str, selected_output_dir: 
 
     # Handler for reconfiguration of the CDP session after a navigation
     async def on_frame_navigated(frame):
-        if frame == page.main_frame:
-                await cdpUtils.enable_events(cdp_session)
-                await cdpUtils.set_breakpoints(cdp_session)
-                await cdpUtils.event_listener_events(cdp_session)
-                await context.add_init_script(hooks)
+        if frame != page.main_frame:
+            return
+        try:
+            await cdpUtils.enable_events(cdp_session)
+            await cdpUtils.set_breakpoints(cdp_session)
+            await cdpUtils.event_listener_events(cdp_session)
+            await context.add_init_script(hooks)
+        except Exception as e:
+            print(f"{yellowColour}[!]{endColour}{grayColour} re-arm after navigation skipped: {e}{endColour}")
     
     # Calling get_targets at the beginning of the program
     targets = await cdp_session.send("Target.getTargets")
@@ -94,7 +103,7 @@ async def run(playwright: Playwright, extension_path: str, selected_output_dir: 
     page.on("framenavigated", on_frame_navigated)
 
     # Navigation activities
-    await actions_on_web(page)
+    await actions_on_web(page, canaries)
 
     # We used a try to avoid errors when closing the context
     await asyncio.sleep(2)
@@ -126,7 +135,7 @@ async def run(playwright: Playwright, extension_path: str, selected_output_dir: 
 
 
 #-------------------------- RUN WITHOUT EXTENSION ------------------------
-async def run_without_extension(playwright: Playwright) -> None:
+async def run_without_extension(playwright: Playwright, canaries: CanarySet) -> None:
 
     cdpUtils.report_json = []
     # Create a new browser context
@@ -134,6 +143,9 @@ async def run_without_extension(playwright: Playwright) -> None:
     
     # We will use the first page created by the browser context
     page = await context.new_page()
+
+    # Same canary cookie as the with-extension pass, so the diff stays valid
+    await page.context.add_cookies([canaries.cookie()])
 
     # Create a new CDP (Chrome DevTools Protocol) session
     cdp_session = await page.context.new_cdp_session(page)
@@ -158,11 +170,15 @@ async def run_without_extension(playwright: Playwright) -> None:
 
     # Handler for reconfiguration of the CDP session after a navigation
     async def on_frame_navigated(frame):
-        if frame == page.main_frame:
-                await cdpUtils.enable_events(cdp_session)
-                await cdpUtils.set_breakpoints(cdp_session)
-                await cdpUtils.event_listener_events(cdp_session)
-                await page.context.add_init_script(hooks)
+        if frame != page.main_frame:
+            return
+        try:
+            await cdpUtils.enable_events(cdp_session)
+            await cdpUtils.set_breakpoints(cdp_session)
+            await cdpUtils.event_listener_events(cdp_session)
+            await page.context.add_init_script(hooks)
+        except Exception as e:
+            print(f"{yellowColour}[!]{endColour}{grayColour} re-arm after navigation skipped: {e}{endColour}")
     
     # Calling get_targets at the beginning of the program
     targets = await cdp_session.send("Target.getTargets")
@@ -180,7 +196,12 @@ async def run_without_extension(playwright: Playwright) -> None:
     page.on("framenavigated", on_frame_navigated)
 
     # Navigation activities
-    await actions_on_web(page)
+    await actions_on_web(page, canaries)
+    # Stop re-arming on navigation before teardown to avoid closed-target errors
+    try:
+        page.remove_listener("framenavigated", on_frame_navigated)
+    except Exception:
+        pass
 
     # We used a try to avoid errors when closing the context
     await asyncio.sleep(2)
@@ -201,9 +222,35 @@ async def run_without_extension(playwright: Playwright) -> None:
 
 #--------------------------- MAIN FUNCTION CALL --------------------------
 
+def _suppress_target_closed(loop, context) -> None:
+    """
+    Loop-level exception handler. When the context closes, Playwright rejects every
+    in-flight CDP send with TargetClosedError; those rejections are dispatched by
+    pyee straight into the event loop (not through our try/except), producing a wall
+    of 'exception was never retrieved' tracebacks at shutdown. They are benign
+    teardown noise, so we drop them here and defer everything else to the default
+    handler.
+    """
+    exc = context.get("exception")
+    if exc is not None and type(exc).__name__ == "TargetClosedError":
+        return
+    loop.default_exception_handler(context)
+
+
 async def main(extension_path: str, selected_output_dir: str):
     # Make sure the output directory for generated files exists
     paths.ensure_output_dir()
+
+    # Silence benign TargetClosedError teardown noise from in-flight CDP sends.
+    asyncio.get_running_loop().set_exception_handler(_suppress_target_closed)
+
+    # Generate one canary set per run and persist it
+    canaries = CanarySet.new()
+    canaries.save(paths.get_output_path())
+    if selected_output_dir:
+        canaries.save(selected_output_dir)
+    print(f"{greenColour}[+]{endColour}{grayColour} Canaries seeded for this run{endColour}")
+
     # We start a local page as a testing web
     php_server = subprocess.Popen(
         ["php", "-S", "127.0.0.1:8080", "-t", paths.get_web_page_dir()],
@@ -213,8 +260,8 @@ async def main(extension_path: str, selected_output_dir: str):
 
     try:
         async with async_playwright() as playwright:
-            await run(playwright, extension_path, selected_output_dir)
-            await run_without_extension(playwright)
+            await run(playwright, extension_path, selected_output_dir, canaries)
+            await run_without_extension(playwright, canaries)
         graph_diff(selected_output_dir)
 
     finally:
