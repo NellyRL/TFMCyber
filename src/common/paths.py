@@ -38,10 +38,23 @@ def get_output_path() -> str:
 def ensure_output_dir() -> None:
 
     """
-    Creates the output directory if it does not exist yet.
+    Creates the output directory (and the captures sub-directory) if they do
+    not exist yet.
     """
 
     os.makedirs(get_output_path(), exist_ok=True)
+    os.makedirs(get_captures_path(), exist_ok=True)
+
+def get_captures_path() -> str:
+
+    """
+    Returns the path of the captures directory inside output, where mitmproxy
+    flow files (.flow) for a capture session are stored.
+    """
+
+    captures_path = get_output_path() + "\\captures"
+
+    return captures_path
 
 #---------------------------- GENERATED FILES ----------------------------
 

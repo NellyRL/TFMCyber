@@ -5,3 +5,4 @@ InternalTFMDocs
 imagenes_traza
 __pycache__
 output
+*.flow

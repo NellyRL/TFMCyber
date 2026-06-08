@@ -10,6 +10,7 @@ Script extended to implement the TTS/dyslexia scenario's canary seeding and user
 
 # External modules
 import asyncio
+import os
 import subprocess
 from playwright.async_api import async_playwright, Playwright
 
@@ -42,9 +43,12 @@ async def run(playwright: Playwright, extension_path: str, selected_output_dir: 
         crx_zip = fileUtils.decompress_crx(extension_path)
     else:
         fileUtils.decompress_extension(extension_path)
+    # Route through mitmproxy only when MITM_PROXY is set (capture sessions);
+    # plain runs leave it unset and behave as before.
+    proxy = {"server": "http://127.0.0.1:8081"} if os.environ.get("MITM_PROXY") else None
     # Create a new browser context
     context = await playwright.chromium.\
-        launch_persistent_context(paths.get_user_data_path(), headless=False, \
+        launch_persistent_context(paths.get_user_data_path(), headless=False, proxy=proxy, \
         args=[f"--disable-extensions-except={paths.get_extension_path()}",\
         f"--load-extension={paths.get_extension_path()}"])
     
@@ -138,8 +142,10 @@ async def run(playwright: Playwright, extension_path: str, selected_output_dir: 
 async def run_without_extension(playwright: Playwright, canaries: CanarySet) -> None:
 
     cdpUtils.report_json = []
+    # Same env-gated mitmproxy routing as the with-extension pass.
+    proxy = {"server": "http://127.0.0.1:8081"} if os.environ.get("MITM_PROXY") else None
     # Create a new browser context
-    context = await playwright.chromium.launch(headless=False)
+    context = await playwright.chromium.launch(headless=False, proxy=proxy)
     
     # We will use the first page created by the browser context
     page = await context.new_page()
