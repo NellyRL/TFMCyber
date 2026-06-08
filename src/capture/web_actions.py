@@ -18,7 +18,7 @@ from src.common.colours import *
 
 EXTRA_TAB_WAIT_SECONDS = 5               # wait for the extension to open onboarding/extra tabs, then close them
 SETTLE_SECONDS         = 2               # let content scripts / dyslexia restyling apply after load
-DWELL_SECONDS          = 300             # manual-interaction window: log into Gmail, click sign-in, open sidebar; also lets async exfiltration fire before closing
+DWELL_SECONDS          = 60              # passive-capture dwell (no manual login needed for sidebars); raise to ~300 for manual Gmail/sign-in sessions
 SCROLL_STEPS           = 4               # number of scroll increments to simulate reading
 ENABLE_WEB_SEARCH      = False           # Optional: real sensitive-topic search engine query
 SEARCH_ENGINE          = "duckduckgo"    # "duckduckgo" | "google"
