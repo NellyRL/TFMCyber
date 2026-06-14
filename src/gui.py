@@ -3,11 +3,17 @@ from tkinter import filedialog
 import tkinter as tk
 import os
 import asyncio
+import threading
 from src.orchestrator import main
 from src.model.predict import predict
+from src.manual.session import ManualSession, STEP_LABELS
 
 selected_output_dir = ""
 last_w, last_h = 0, 0
+
+# Manual-analysis tab state
+manual_output_dir = ""
+manual_session = None
 
 def select_file_callback():
     root = tk.Tk()
@@ -76,6 +82,85 @@ def execute_analysis():
     asyncio.run(main(extension_path, selected_output_dir))
     dpg.set_value("status_text", "Análisis completado correctamente.")
     show_alert_popup()
+
+# ========== MANUAL ANALYSIS TAB ==========
+
+def manual_select_file_callback():
+    root = tk.Tk()
+    root.withdraw()
+    extension_path = filedialog.askopenfilename(filetypes=[("Extensiones", "*.crx *.zip")])
+    root.destroy()
+    if extension_path:
+        dpg.set_value("manual_selected_file", extension_path)
+        dpg.set_value("manual_status", "Extensión seleccionada, lista para la sesión manual.")
+    else:
+        dpg.set_value("manual_status", "No se seleccionó ninguna extensión.")
+
+def manual_select_output_dir_callback():
+    global manual_output_dir
+    root = tk.Tk()
+    root.withdraw()
+    folder_selected = filedialog.askdirectory()
+    root.destroy()
+    if folder_selected:
+        manual_output_dir = folder_selected
+        dpg.set_value("manual_selected_output_dir", folder_selected)
+    else:
+        dpg.set_value("manual_selected_output_dir", "No se seleccionó ninguna carpeta.")
+
+def _manual_start_worker():
+    global manual_session
+    extension_path = dpg.get_value("manual_selected_file")
+    if not extension_path or not os.path.exists(extension_path):
+        dpg.set_value("manual_status", "Error: selecciona una extensión válida primero.")
+        return
+    if manual_session is not None:
+        dpg.set_value("manual_status", "Ya hay una sesión en curso. Pulsa 'Finalizar sesión' antes de iniciar otra.")
+        return
+    use_mitm = dpg.get_value("manual_use_mitm")
+    dpg.set_value("manual_status", "Iniciando sesión manual (sembrando canarios, lanzando navegador)...")
+    try:
+        session = ManualSession(extension_path, manual_output_dir, use_mitm)
+        brief = session.start()
+    except Exception as e:
+        dpg.set_value("manual_status", f"Error al iniciar la sesión: {e}")
+        return
+    manual_session = session
+    # Reset the checklist and fill the per-run detail
+    for i in range(len(STEP_LABELS)):
+        dpg.set_value(f"manual_step_{i}", False)
+    dpg.set_value("manual_steps", "\n\n".join(brief["steps"]))
+    dpg.set_value("manual_snippet", brief["console_snippet"])
+    status = "Sesión manual EN CURSO. Conduce el navegador y pulsa 'Finalizar sesión' al terminar."
+    if brief["warnings"]:
+        status = "[!] " + " | ".join(brief["warnings"]) + "\n" + status
+    dpg.set_value("manual_status", status)
+
+def manual_start_callback():
+    threading.Thread(target=_manual_start_worker, daemon=True).start()
+
+def _manual_finish_worker():
+    global manual_session
+    if manual_session is None:
+        dpg.set_value("manual_status", "No hay ninguna sesión activa.")
+        return
+    ticked = [dpg.get_value(f"manual_step_{i}") for i in range(len(STEP_LABELS))]
+    try:
+        log_path = manual_session.finish(ticked)
+    except Exception as e:
+        dpg.set_value("manual_status", f"Error al finalizar la sesión: {e}")
+        return
+    manual_session = None
+    dpg.set_value("manual_status", f"Sesión finalizada. Log escrito en: {log_path}")
+
+def manual_finish_callback():
+    threading.Thread(target=_manual_finish_worker, daemon=True).start()
+
+def manual_copy_snippet_callback():
+    snippet = dpg.get_value("manual_snippet")
+    if snippet:
+        dpg.set_clipboard_text(snippet)
+        dpg.set_value("manual_status", "Snippet copiado al portapapeles (solo dentro de la VM).")
 
 # Adaptación al redimensionamiento
 
@@ -149,6 +234,52 @@ def launch():
                 dpg.add_progress_bar(default_value=0.0, tag="prob_other", overlay="Probabilidad other: 0.0", width=400)
                 dpg.add_spacer(height=10)
 
+            with dpg.tab(label="Análisis Manual"):
+                dpg.add_spacer(height=15)
+                dpg.add_text(
+                    "Sesión manual: navegador normal (Chromium) con la extensión cargada, "
+                    "sin Playwright/CDP ni tiempo de espera impuesto. Tú conduces y cierras.",
+                    wrap=900,
+                )
+                dpg.add_spacer(height=15)
+
+                dpg.add_text("1. Selecciona una extensión (.crx o .zip)", bullet=True)
+                dpg.add_button(label="Seleccionar archivo", callback=manual_select_file_callback, width=250)
+                dpg.add_input_text(tag="manual_selected_file", readonly=True, width=600, hint="Ruta del archivo")
+
+                dpg.add_spacer(height=10)
+                dpg.add_text("2. Carpeta de salida (opcional; por defecto output\\manual\\)", bullet=True)
+                dpg.add_button(label="Seleccionar carpeta de salida", callback=manual_select_output_dir_callback, width=250)
+                dpg.add_input_text(tag="manual_selected_output_dir", readonly=True, width=600, hint="Ruta de salida")
+
+                dpg.add_spacer(height=10)
+                dpg.add_checkbox(label="Capturar tráfico con mitmproxy (puerto 8081)", tag="manual_use_mitm", default_value=True)
+
+                dpg.add_spacer(height=15)
+                with dpg.group(horizontal=True):
+                    dpg.add_button(label="Iniciar sesión manual", callback=manual_start_callback, width=220)
+                    dpg.add_button(label="Finalizar sesión", callback=manual_finish_callback, width=220)
+
+                dpg.add_spacer(height=15)
+                dpg.add_text("Pasos de esta ejecución:")
+                dpg.add_input_text(tag="manual_steps", multiline=True, readonly=True, width=900, height=180,
+                                   hint="Inicia una sesión para ver los pasos con las URLs/tokens de esta ejecución.")
+
+                dpg.add_spacer(height=10)
+                dpg.add_text("Checklist (marca lo que vayas completando; se guarda en el log):")
+                for i, label in enumerate(STEP_LABELS):
+                    dpg.add_checkbox(label=label, tag=f"manual_step_{i}", default_value=False)
+
+                dpg.add_spacer(height=10)
+                dpg.add_text("Snippet para la consola de DevTools (siembra los canarios):")
+                dpg.add_input_text(tag="manual_snippet", multiline=True, readonly=True, width=900, height=130,
+                                   hint="Disponible tras iniciar la sesión.")
+                dpg.add_button(label="Copiar snippet", callback=manual_copy_snippet_callback, width=200)
+
+                dpg.add_spacer(height=15)
+                dpg.add_text("Estado:")
+                dpg.add_text("Esperando extensión...", tag="manual_status", wrap=900)
+
     # === Lanzamiento de DearPyGui ===
     dpg.setup_dearpygui()
     dpg.bind_theme(custom_theme)
@@ -160,5 +291,13 @@ def launch():
     while dpg.is_dearpygui_running():
         check_viewport_resize()
         dpg.render_dearpygui_frame()
+
+    # If a manual session is still active when the app closes, stop its servers
+    # (PHP / mitmdump) so they are not left orphaned. The browser is the operator's.
+    if manual_session is not None:
+        try:
+            manual_session.finish()
+        except Exception:
+            pass
 
     dpg.destroy_context()

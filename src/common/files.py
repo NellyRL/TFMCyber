@@ -43,13 +43,18 @@ def remove_user_data() -> None:
     except:
         print(f"{redColour}[!]{endColour}{grayColour} Previous user data directory not exist{endColour}")
 
-def decompress_extension(extension_path) -> None:
+def decompress_extension(extension_path, target_dir=None) -> None:
 
     """
     This function tries to decompress an extension file.
+
+    target_dir lets callers unpack somewhere other than the shared automated-run
+    directory (the manual session uses its own per-sample dir so the two paths do
+    not collide). Defaults to get_extension_path() to keep existing callers intact.
     """
+    target = target_dir or paths.get_extension_path()
     try:
-        shutil.unpack_archive(extension_path, paths.get_extension_path())
+        shutil.unpack_archive(extension_path, target)
         print(f"{greenColour}[+]{endColour}{grayColour} Extension decompressed{endColour}")
     except:
         print(f"{redColour}[!]{endColour}{grayColour} Extension not decompressed{endColour}")
@@ -60,7 +65,7 @@ def decompress_extension(extension_path) -> None:
 def zip_file_name(name):
     return name + ".zip"
 
-def decompress_crx(filename):
+def decompress_crx(filename, target_dir=None):
     ret = None
 
     with open(filename, "rb") as crx_in:
@@ -119,7 +124,7 @@ def decompress_crx(filename):
         if wrote < 1:
             print("  - wrote 0 bytes to file (%s)." % zip_name)
     
-    shutil.unpack_archive(ret, paths.get_extension_path())
+    shutil.unpack_archive(ret, target_dir or paths.get_extension_path())
     print(f"{greenColour}[+]{endColour}{grayColour} Extension decompressed{endColour}")
     return zip_name
 # CREDITS END
