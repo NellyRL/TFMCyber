@@ -15,6 +15,13 @@ last_w, last_h = 0, 0
 manual_output_dir = ""
 manual_session = None
 
+# Maps the radio labels shown in the manual tab to ManualSession mitm modes.
+MANUAL_MITM_LABELS = {
+    "Externa (yo lanzo mitmproxy en 127.0.0.1:8081)": "external",
+    "Gestionada (la herramienta lanza mitmdump)": "managed",
+    "Sin captura": "off",
+}
+
 def select_file_callback():
     root = tk.Tk()
     root.withdraw()
@@ -117,10 +124,10 @@ def _manual_start_worker():
     if manual_session is not None:
         dpg.set_value("manual_status", "Ya hay una sesión en curso. Pulsa 'Finalizar sesión' antes de iniciar otra.")
         return
-    use_mitm = dpg.get_value("manual_use_mitm")
+    mitm_mode = MANUAL_MITM_LABELS.get(dpg.get_value("manual_mitm_mode"), "external")
     dpg.set_value("manual_status", "Iniciando sesión manual (sembrando canarios, lanzando navegador)...")
     try:
-        session = ManualSession(extension_path, manual_output_dir, use_mitm)
+        session = ManualSession(extension_path, manual_output_dir, mitm_mode=mitm_mode)
         brief = session.start()
     except Exception as e:
         dpg.set_value("manual_status", f"Error al iniciar la sesión: {e}")
@@ -132,6 +139,9 @@ def _manual_start_worker():
     dpg.set_value("manual_steps", "\n\n".join(brief["steps"]))
     dpg.set_value("manual_snippet", brief["console_snippet"])
     status = "Sesión manual EN CURSO. Conduce el navegador y pulsa 'Finalizar sesión' al terminar."
+    if brief.get("external_capture_hint"):
+        status += ("\nCaptura EXTERNA: tu mitmproxy ya está en uso. Para el mismo "
+                   f".flow que el modo gestionado, lánzalo con:\n  {brief['external_capture_hint']}")
     if brief["warnings"]:
         status = "[!] " + " | ".join(brief["warnings"]) + "\n" + status
     dpg.set_value("manual_status", status)
@@ -253,7 +263,20 @@ def launch():
                 dpg.add_input_text(tag="manual_selected_output_dir", readonly=True, width=600, hint="Ruta de salida")
 
                 dpg.add_spacer(height=10)
-                dpg.add_checkbox(label="Capturar tráfico con mitmproxy (puerto 8081)", tag="manual_use_mitm", default_value=True)
+                dpg.add_text("3. Captura de tráfico", bullet=True)
+                dpg.add_radio_button(
+                    list(MANUAL_MITM_LABELS.keys()),
+                    tag="manual_mitm_mode",
+                    default_value="Externa (yo lanzo mitmproxy en 127.0.0.1:8081)",
+                )
+                dpg.add_text(
+                    "Modo EXTERNA (por defecto): arranca tú el proxy ANTES de iniciar, p.ej.\n"
+                    "  mitmweb --listen-port 8081 --web-port 8082\n"
+                    "  (o)  mitmdump --listen-port 8081 -w output\\captures\\<sample>.flow\n"
+                    "y confía en la CA (certutil -addstore -f Root ...mitmproxy-ca-cert.cer).\n"
+                    "Si nada escucha en 8081, la sesión NO arranca.",
+                    wrap=900, color=(170, 170, 170),
+                )
 
                 dpg.add_spacer(height=15)
                 with dpg.group(horizontal=True):

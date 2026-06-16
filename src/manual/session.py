@@ -24,6 +24,7 @@ import hashlib
 import json
 import os
 import shutil
+import socket
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -58,6 +59,25 @@ def _resolve_mitmdump() -> str | None:
     return cand if os.path.exists(cand) else None
 
 
+# Capture modes for the manual session:
+#   "off"      -> no proxy, no capture
+#   "managed"  -> the tool spawns/kills mitmdump and owns the .flow file
+#   "external" -> the operator started mitmproxy separately; the tool only routes
+#                 the browser through it and never starts/stops a proxy
+MITM_MODES = ("off", "managed", "external")
+DEFAULT_PROXY_ADDR = "127.0.0.1:8081"
+
+
+def _port_open(addr: str, timeout: float = 0.5) -> bool:
+    """True if something is accepting TCP connections at host:port (addr)."""
+    try:
+        host, port = addr.rsplit(":", 1)
+        with socket.create_connection((host, int(port)), timeout=timeout):
+            return True
+    except OSError:
+        return False
+
+
 # Generic checklist labels (no per-run tokens). The token/URL-filled detail lives
 # in `steps_detail()`. Kept here so the GUI can pre-create the checkboxes on the
 # main thread and the log can record which ones the operator ticked.
@@ -77,14 +97,30 @@ STEP_LABELS = [
 class ManualSession:
     """One human-driven analysis of a single extension. Build → start() → finish()."""
 
-    def __init__(self, extension_path: str, output_dir: str = "", use_mitm: bool = True):
+    def __init__(self, extension_path: str, output_dir: str = "",
+                 mitm_mode: str = "external", proxy_addr: str = DEFAULT_PROXY_ADDR,
+                 use_mitm: bool | None = None):
         self.extension_path = extension_path
         self.sample         = os.path.splitext(os.path.basename(extension_path))[0]
         base                = output_dir or paths.get_output_path()
         self.session_dir    = os.path.join(base, "manual", self.sample)
         self.unpacked_dir   = os.path.join(self.session_dir, "unpacked")
-        self.flow_path      = os.path.join(paths.get_captures_path(), f"{self.sample}.flow")
-        self.use_mitm       = use_mitm
+
+        # Back-compat shim: legacy callers passed use_mitm (True/False).
+        if use_mitm is not None:
+            mitm_mode = "managed" if use_mitm else "off"
+        if mitm_mode not in MITM_MODES:
+            raise ValueError(f"mitm_mode debe ser uno de {MITM_MODES}, no {mitm_mode!r}")
+        self.mitm_mode  = mitm_mode
+        self.proxy_addr = proxy_addr
+
+        # The tool only owns a .flow file in 'managed' mode; in 'external' the
+        # operator's own mitmproxy writes it (suggested path below), in 'off' none.
+        self.flow_path  = os.path.join(paths.get_captures_path(), f"{self.sample}.flow") \
+                          if mitm_mode == "managed" else None
+        # Path we recommend the operator pass to `mitmdump -w` so the artifact
+        # matches the managed-mode location.
+        self.suggested_flow = os.path.join(paths.get_captures_path(), f"{self.sample}.flow")
 
         self.canaries: CanarySet | None = None
         self.warnings: list[str] = []
@@ -121,18 +157,34 @@ class ManualSession:
             stdout=subprocess.PIPE, stderr=subprocess.PIPE,
         )
 
-        # 3. Optional mitmdump capture; degrade gracefully if unavailable
-        if self.use_mitm:
+        # 3. Capture, per mode:
+        #    - managed : the tool spawns mitmdump and owns the .flow file
+        #    - external: the operator started mitmproxy separately; we only verify
+        #                it is listening and REFUSE to start if it is not
+        #    - off     : nothing
+        if self.mitm_mode == "managed":
             mitm = _resolve_mitmdump()
             if mitm:
+                port = self.proxy_addr.rsplit(":", 1)[-1]
                 self._mitm = subprocess.Popen(
-                    [mitm, "--listen-port", "8081", "-w", self.flow_path],
+                    [mitm, "--listen-port", port, "-w", self.flow_path],
                     stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                 )
             else:
-                self.use_mitm = False
+                self.mitm_mode = "off"
+                self.flow_path = None
                 self.warnings.append(
                     "mitmdump no encontrado: la sesión continúa SIN captura de tráfico."
+                )
+        elif self.mitm_mode == "external":
+            if not _port_open(self.proxy_addr):
+                self._terminate_servers()
+                raise RuntimeError(
+                    f"Modo externo: no hay ningún proxy escuchando en {self.proxy_addr}. "
+                    f"Arranca mitmproxy primero, p.ej.:\n"
+                    f"  mitmweb --listen-port {self.proxy_addr.rsplit(':', 1)[-1]} --web-port 8082\n"
+                    f"  (o)  mitmdump --listen-port {self.proxy_addr.rsplit(':', 1)[-1]} -w \"{self.suggested_flow}\"\n"
+                    f"y asegúrate de haber confiado en la CA de mitmproxy."
                 )
 
         # 4. Unpack the extension into its OWN dir (never the shared automated dir)
@@ -156,8 +208,8 @@ class ManualSession:
             f"--user-data-dir={profile}",
             f"--load-extension={self.unpacked_dir}",
         ]
-        if self.use_mitm:
-            self._browser_args.append("--proxy-server=127.0.0.1:8081")
+        if self.mitm_mode in ("managed", "external"):
+            self._browser_args.append(f"--proxy-server={self.proxy_addr}")
         self._browser_args.append(self.canaries.reading_url())
         self._browser = subprocess.Popen(self._browser_args)
 
@@ -221,8 +273,15 @@ class ManualSession:
             "history_urls": self.canaries.history_urls(),
             "console_snippet": self.console_snippet(),
             "steps": self.steps_detail(),
-            "mitm_capture": self.use_mitm,
-            "flow_path": self.flow_path if self.use_mitm else None,
+            "mitm_mode": self.mitm_mode,
+            "proxy_addr": self.proxy_addr if self.mitm_mode in ("managed", "external") else None,
+            "mitm_capture": self.mitm_mode != "off",
+            "flow_path": self.flow_path,
+            "external_capture_hint": (
+                f'mitmdump --listen-port {self.proxy_addr.rsplit(":", 1)[-1]} '
+                f'-w "{self.suggested_flow}"'
+                if self.mitm_mode == "external" else None
+            ),
             "session_dir": self.session_dir,
             "warnings": self.warnings,
         }
@@ -266,8 +325,11 @@ class ManualSession:
             "started_at": self.started_at.isoformat() if self.started_at else None,
             "ended_at": self.ended_at.isoformat() if self.ended_at else None,
             "duration_seconds": duration,
-            "mitm_capture": self.use_mitm,
-            "flow_path": self.flow_path if self.use_mitm else None,
+            "mitm_mode": self.mitm_mode,
+            "proxy_addr": self.proxy_addr if self.mitm_mode in ("managed", "external") else None,
+            "mitm_capture": self.mitm_mode != "off",
+            "flow_path": self.flow_path if self.mitm_mode == "managed" else None,
+            "suggested_flow": self.suggested_flow if self.mitm_mode == "external" else None,
             "canaries_path": os.path.join(self.session_dir, "canaries.json"),
             "canaries": self.canaries.as_dict() if self.canaries else {},
             "browser_executable": self._chromium,
@@ -303,8 +365,10 @@ class ManualSession:
             f"- **Started:** {d['started_at']}",
             f"- **Ended:** {d['ended_at']}",
             f"- **Duration (s):** {d['duration_seconds']}",
-            f"- **mitmproxy capture:** {d['mitm_capture']}",
-            f"- **Flow file:** `{d['flow_path']}`",
+            f"- **mitmproxy capture:** {d['mitm_capture']} (modo: {d['mitm_mode']}"
+            + (f", proxy: `{d['proxy_addr']}`" if d.get('proxy_addr') else "") + ")",
+            f"- **Flow file:** `{d['flow_path'] or d.get('suggested_flow') or '—'}`"
+            + (" _(lo escribe tu mitmproxy externo)_" if d['mitm_mode'] == 'external' else ""),
             f"- **Canaries:** `{d['canaries_path']}`",
             f"- **Browser:** `{d['browser_executable']}`",
             "",
@@ -345,7 +409,7 @@ class ManualSession:
             "**Malicious / abusive criterion:** a canary reaching a **third party** not "
             "disclosed in the extension's privacy policy / T&C.",
             "",
-            f"_Next: run the leak scanner on `{d['flow_path']}` once `scan_leaks.py` exists._",
+            f"_Next: run the leak scanner on `{d['flow_path'] or d.get('suggested_flow')}` once `scan_leaks.py` exists._",
             "",
         ]
         if d["warnings"]:
